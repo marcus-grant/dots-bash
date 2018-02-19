@@ -54,8 +54,9 @@ export GOPATH="$GOPATH:$BASH_CONFIGS_ROOT/prompts"
 # Get and include anaconda's path based on "MACHINE" var
 if [ $MACHINE == "mac" ]; then
   export PATH="$HOME/.anaconda3/bin:$PATH"
-else
-  export PATH="$HOME/.local/share/anaconda3/bin:$PATH"
+# else
+  # removed because anaconda fucks stuff up ALL THE TIME
+  # export PATH="$HOME/.local/share/anaconda3/bin:$PATH"
 fi
 # Setup paths for virtualenv
 if [ -d $HOME/.virtualenvs ]; then
