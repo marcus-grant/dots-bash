@@ -67,9 +67,9 @@ fi
 
 
 # fzf exports - from https://mike.place/2017/fzf-fd/
-export FZF_DEFAULT_COMMAND="fd . $HOME"
+export FZF_DEFAULT_COMMAND="fd --type f --hidden --exclude .git --exclude node_modules --exclude .cache --exclude .local --exclude .config"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_ALT_C_COMMAND="fd -t d . $HOME"
+export FZF_ALT_C_COMMAND="fd --hidden --exclude .git --exclude node_modules --exclude .cache --exclude .local -t d . /"
 
 
 
