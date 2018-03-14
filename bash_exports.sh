@@ -25,8 +25,21 @@ esac
 export MACHINE="$machine"
 
 # Termite & iTerm with Tmux work best with xterm-256color
-export TERM=xterm-256color
-
+# export TERM=xterm-256color
+# from  https://www.queryxchange.com/q/2_399296/256-color-support-for-vim-background-in-tmux/
+if [[ -z $TMUX ]]; then
+    if [ -e /usr/share/terminfo/x/xterm+256color ]; then # may be xterm-256 depending on your distro
+        export TERM='xterm-256color'
+    else
+        export TERM='xterm'
+    fi
+else
+    if [ -e /usr/share/terminfo/s/screen-256color ]; then
+        export TERM='screen-256color'
+    else
+        export TERM='screen'
+    fi
+  fi
 # Editor vars
 export VISUAL="gedit"
 # determine if nvim is installed and use instead of vim if so
