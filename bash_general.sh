@@ -14,6 +14,14 @@ if [ $MACHINE == "linux" ]; then
   else
       echo "Attempted to add git keychain, but no keyfile exists, ignoring..."
   fi
+#else
+  #if [ -f $HOME/.ssh/git.key ]; then
+      #eval "$(ssh-agent -s)"
+      #ssh-add -Kq $HOME/.ssh/git.key
+      #eval $(keychain --eval --quiet $HOME/.ssh/git.key )
+  #else
+      #echo "Attempted to add git keychain, but no keyfile exists, ignoring..."
+  #fi
 fi
 
 # run archey3 if it exists
