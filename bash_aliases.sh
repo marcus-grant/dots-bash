@@ -24,6 +24,17 @@ alias recall-location='cd $tmp_location'
 
 # Filesystem (ls, grep, ...) {{{
 # Set all common options desired on ls first by replacing the default ls command, here, I want to force color always on ls
+# These things differ between Linux & Mac, so it's important to set aliases based on whether $MACHINE is "linux" or "mac"
+if [ $MACHINE == "mac" ]; then
+alias lsnc='ls'
+alias lnc="ls -lh"
+alias lanc='lc -lah'
+alias lc='ls -G'
+alias l='lc -lh' # exclude hidden, longform, human-readable filesize, excl. grp
+alias la='lc -lah' # same as above, but incl. grps & hiddens
+alias lt='lc -lahtr' # sort by time same as la but without groups, rev order
+alias lS='lc -lahSr' # same as ^ but with filesize & reversed for ez view
+else
 alias lsnc='ls --color=never'
 alias lnc='ls -lhG'
 alias lanc='lc -lah'
@@ -32,6 +43,7 @@ alias l='lc -lhG' # exclude hidden, longform, human-readable filesize, excl. grp
 alias la='lc -lah' # same as above, but incl. grps & hiddens
 alias lt='lc -lahGtr' # sort by time same as la but without groups, rev order
 alias lS='lc -lahGSr' # same as ^ but with filesize & reversed for ez view
+fi
 
 # Grep
 alias grep='grep --color=auto'
