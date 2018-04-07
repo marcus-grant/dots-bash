@@ -7,6 +7,10 @@
 ########
 
 # make sure BASH_CONFIGS_ROOT is exported
+# first determine if there's a ~/.bashrc link, if not, use ~/.bash_profile
+#if [[ $HOME/.bashrc -L ]]; then
+#    export BASH_CONFIGS_ROOT=$(dirname "$(readlink ~/.bashrc)")
+#fi
 export BASH_CONFIGS_ROOT=$(dirname "$(readlink ~/.bash_profile)")
 
 # need to get all other exports first
