@@ -8,7 +8,7 @@
 # TODO: Add an alternative profile for when intended to be installed on remote server, git ssh keys shouldn't be stored there, use HTTPS instead
 # TODO: OR consider a better private key passwording method
 # if a linux system, add all keychains in if statement below with paths
-if [ $MACHINE == "linux" ]; then
+if [ $MACHINE == "linux" ] | [ $MACHINE == "wsl" ]; then
   if [ -f $HOME/.ssh/git.key ]; then
       eval $(keychain --eval --quiet $HOME/.ssh/git.key )
   else
