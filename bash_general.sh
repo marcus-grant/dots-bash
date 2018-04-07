@@ -24,6 +24,16 @@ if [ $MACHINE == "linux" ] | [ $MACHINE == "wsl" ]; then
   #fi
 fi
 
+# WSL fix for default file mask 
+# WSL for some stupid reason sets the most permissive...
+# ...file/dir permissions in its umask.
+# Change it to 022 to set it to the sane linux defaults of most distros
+if [[ $MACHINE == "wsl" ]]; then
+    umask 022
+fi
+
+
+
 # run archey3 if it exists
 # TODO: Add an else for when archey isn't there, that at the very least includes uname and hostname
 if hash archey3 2>/dev/null; then
