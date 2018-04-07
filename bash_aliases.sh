@@ -110,3 +110,9 @@ if [[ "$MACHINE" == "mac" ]]; then
 fi
 #}}}
 
+# WSL {{{
+if [[ "$MACHINE" == "wsl" ]]; then
+    alias npm='/usr/bin/npm'
+fi
+#}}}
+
