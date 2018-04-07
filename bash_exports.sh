@@ -15,11 +15,18 @@ machine=""
 unameOut="$(uname -s)"
 case "${unameOut}" in
     Linux*)	machine="linux";;
-    Darwin*)    machine="mac";;
+    # Darwin*)    machine="mac";;
+    *Microsoft*) machine="wsl";;
     CYGWIN*)    machine="cygwin";;
     MINGW*)     machine="minGw";;
     *)          machine="UNKNOWN:${unameOut}"
 esac
+# override linux in machine if uname -a contains "Microsoft"
+if [[ $machine == "linux" ]]; then
+    if [[ "$(uname -a)" = *"Microsoft"* ]]; then
+        machine="wsl"
+    fi
+fi
 export MACHINE="$machine"
 
 # Termite & iTerm with Tmux work best with xterm-256color
