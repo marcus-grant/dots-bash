@@ -64,9 +64,12 @@ export PATH="$HOME/bin:$PATH"
 # Rust's cargo package manager needs for there to be some kind of standard path
 export PATH="$HOME/.cargo/bin:$PATH"
 # Go's GOPATH
-export PATH="$PATH:$HOME/bin/go/bin"
-export GOPATH="$GOPATH:$HOME/bin/go"
-export GOBIN="$GOBIN:$HOME/bin/go/bin"
+# export PATH="$PATH:$HOME/bin/go/bin"
+export PATH="$PATH:$HOME/code/go"
+# export GOPATH="$GOPATH:$HOME/bin/go"
+export GOPATH="$HOME/code/go"
+# export GOBIN="$GOBIN:$HOME/bin/go/bin"
+# export GOBIN="$HOME/bin/go/bin"
 # add a GOPATH for the .dotfiles/bash/prompts/ dir so the go-powerline can run
 # TODO: Disabled below for now because it might be fucking with resolutions.
 # export GOPATH="$GOPATH:$BASH_CONFIGS_ROOT/prompts"
