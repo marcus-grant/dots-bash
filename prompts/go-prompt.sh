@@ -8,6 +8,7 @@ PROMPT_OPTS_PATH=$BASH_CONFIGS_ROOT/prompts/go-prompt-options.sh
 
 # get prompt options from go-prompt-options, if doesn't exist ignore
 if [ -e $PROMPT_OPTS_PATH ]; then
+    echo "prompt opts exist"
   PROMPT_OPTIONS="$($PROMPT_OPTS_PATH)"
 else PROMPT_OPTIONS=""; fi
 PROMPT_STRING="$GO_PROMPT_CMD_PATH $PROMPT_OPTS"
