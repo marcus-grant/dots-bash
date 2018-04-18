@@ -15,10 +15,10 @@ mode="-mode flat" # options are patched, compatible, flat
 # aws, cwd, docker, dotenv, exit, git, gitlite, hg, host, jobs, perlbrew, 
 # perms, root, ssh, time, user, venv
 # TODO: Figure out how to get newline to work
-modules="venv,user,host,ssh,cwd,perms,git,newline,docker,hg,jobs,exit,root"
+modules="venv,user,host,ssh,cwd,perms,git,docker,hg,jobs,exit,root"
 moduleOption="-modules $modules"
-modulePriority="venv,user,host,ssh,cwd,perms,newline,git-branch,git-status,docker,hg,jobs,exit,cwd-path"
-modulePriorityOption="-prioritized $modulePriority"
+modulePriority="venv,user,host,ssh,cwd,perms,newline,git-branch,git-status,docker,hg,jobs,exit"
+modulePriorityOption="-priority $modulePriority"
 maxWidth="-max-width 50" # in percent, limits the prompt width
 newLine="-newline" # display prompt info in its own line above command area
 errorOption="-error $?" # display exit code
@@ -27,18 +27,18 @@ truncateSegWidth="-truncate-segment-width 16" # min width of a segment, longer w
 shortenGKE="-shorten-gke-names"
 
 ##### Path Aliases
-pathAliases[0]="\~/code/web=@web-dev"
-pathAliases[1]="\~/code/ai=@ai-dev"
-pathAliases[2]="\~/code/data-science=@data-sci"
-pathAliases[3]="\~/code/go/src/github.com=@go-dev"
-pathAliases[4]="\~/code/go/src/github.com/marcus-grant=@go-home"
-pathAliases[5]="\~/code/go/bin=@go-bin"
-pathAliases[6]="\~/code/python=@py-dev"
-pathAliases[7]="\~/code/embedded=@embed-dev"
-pathAliases[8]="\~/code/rust=@rust-dev"
-pathAliases[9]="\~/dotfiles/bash=@.bash"
-pathAliases[10]="\~/dotfiles/neovim=@.neo"
-pathAliases[11]="\~/dotfiles/tmux=@.tmux"
+# pathAliases[0]="\~/code/web=@web"
+# pathAliases[1]="\~/code/ai=@ai"
+# pathAliases[2]="\~/code/data-science=@data-sci"
+# pathAliases[3]="\~/code/go/src/github.com=@go"
+# pathAliases[4]="\~/code/go/src/github.com/marcus-grant=@go-home"
+# pathAliases[5]="\~/code/go/bin=@go-bin"
+# pathAliases[6]="\~/code/python=@py-dev"
+# pathAliases[7]="\~/code/embedded=@embed"
+# pathAliases[8]="\~/code/rust=@rust"
+pathAliases[0]="\~/dotfiles/bash=@.bash"
+# pathAliases[10]="\~/dotfiles/neovim=@.neo"
+# pathAliases[11]="\~/dotfiles/tmux=@.tmux"
 
 pathTemp="-path-aliases "
 for alias in "${pathAliases[@]}"
@@ -48,9 +48,10 @@ done
 
 # pathAliases="${pathTemp::-2}"
 # echo "$pathTemp"
+# cut the trailing comma out of the path alias string
 pathTemp="$(echo $pathTemp | rev | cut -c 2- | rev)"
-# echo $pathTemp
 pathAliases="$pathTemp"
+echo "$pathAliases"
 
 # assemble all options in one string
 # promptOptions="$colorizeHostname $maxDepth $maxDirSize $cwdMode $mode "
@@ -61,4 +62,4 @@ promptOptions="$promptOptions $moduleOption $modulePriorityOption $shortenGKE $p
 
 # to get all the options, simply use $(go-prompt-opts.sh) to capture
 # the echo output below
-echo "$promptOptions"
+# echo "$promptOptions"
