@@ -51,7 +51,7 @@ done
 # cut the trailing comma out of the path alias string
 pathTemp="$(echo $pathTemp | rev | cut -c 2- | rev)"
 pathAliases="$pathTemp"
-echo "$pathAliases"
+# echo $pathAliases
 
 # assemble all options in one string
 # promptOptions="$colorizeHostname $maxDepth $maxDirSize $cwdMode $mode "
@@ -62,4 +62,4 @@ promptOptions="$promptOptions $moduleOption $modulePriorityOption $shortenGKE $p
 
 # to get all the options, simply use $(go-prompt-opts.sh) to capture
 # the echo output below
-# echo "$promptOptions"
+echo "$promptOptions"
