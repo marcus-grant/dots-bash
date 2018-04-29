@@ -40,9 +40,6 @@ if hash archey3 2>/dev/null; then
     archey3
 fi
 
-# if linux set caps as escape key
-if [[ "$MACHINE" == "linux" ]]; then caps-as-esc; fi
-
 # Case-Insensitive Auto Completion
 bind "set completion-ignore-case on"
 
