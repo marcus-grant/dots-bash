@@ -59,6 +59,8 @@ fi
 # PATHs
 # TODO !!!!!! Be sure to migrate the .bashrc ones over to here instead
 
+# Add defulat local bin
+export PATH="$HOME/.local/bin:$PATH"
 # Home bin for my custom apps and scripts
 export PATH="$HOME/bin:$PATH"
 # Rust's cargo package manager needs for there to be some kind of standard path
