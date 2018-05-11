@@ -72,9 +72,9 @@ export PATH="$PATH:$HOME/code/go/bin"
 export GOPATH="$HOME/code/go"
 export GOBIN="$HOME/code/go/bin"
 
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
+# pyenv - is a devops nightmare
+# export PYENV_ROOT="$HOME/.pyenv"
+# export PATH="$PYENV_ROOT/bin:$PATH"
 
 # export GOBIN="$GOBIN:$HOME/bin/go/bin"
 # export GOBIN="$HOME/bin/go/bin"
@@ -107,6 +107,7 @@ export FZF_ALT_C_COMMAND="fd --hidden --exclude .git --exclude node_modules --ex
 # TODO: find better way to standardize this across systems particularly on arch
 #export XDG_CONFIG_HOME="${XDG_CONFIG_HOME}:$HOME/.config"
 
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
+# pyenv is a devops nightmare
+# if command -v pyenv 1>/dev/null 2>&1; then
+#   eval "$(pyenv init -)"
+# fi
