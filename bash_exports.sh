@@ -15,7 +15,7 @@ machine=""
 unameOut="$(uname -s)"
 case "${unameOut}" in
     Linux*)	machine="linux";;
-    # Darwin*)    machine="mac";;
+    Darwin*)    machine="mac";;
     *Microsoft*) machine="wsl";;
     CYGWIN*)    machine="cygwin";;
     MINGW*)     machine="minGw";;
@@ -59,23 +59,35 @@ fi
 # PATHs
 # TODO !!!!!! Be sure to migrate the .bashrc ones over to here instead
 
+# Add defulat local bin
+export PATH="$HOME/.local/bin:$PATH"
 # Home bin for my custom apps and scripts
 export PATH="$HOME/bin:$PATH"
 # Rust's cargo package manager needs for there to be some kind of standard path
 export PATH="$HOME/.cargo/bin:$PATH"
 # Go's GOPATH
-export PATH="$PATH:$HOME/bin/go/bin"
-export GOPATH="$GOPATH:$HOME/bin/go/bin"
-export GOBIN="$GOBIN:$HOME/bin/go/bin"
+# export PATH="$PATH:$HOME/bin/go/bin"
+export PATH="$PATH:$HOME/code/go/bin"
+# export GOPATH="$GOPATH:$HOME/bin/go"
+export GOPATH="$HOME/code/go"
+export GOBIN="$HOME/code/go/bin"
+
+# pyenv - is a devops nightmare
+# export PYENV_ROOT="$HOME/.pyenv"
+# export PATH="$PYENV_ROOT/bin:$PATH"
+
+# export GOBIN="$GOBIN:$HOME/bin/go/bin"
+# export GOBIN="$HOME/bin/go/bin"
 # add a GOPATH for the .dotfiles/bash/prompts/ dir so the go-powerline can run
-export GOPATH="$GOPATH:$BASH_CONFIGS_ROOT/prompts"
+# TODO: Disabled below for now because it might be fucking with resolutions.
+# export GOPATH="$GOPATH:$BASH_CONFIGS_ROOT/prompts"
 # Get and include anaconda's path based on "MACHINE" var
-if [ $MACHINE == "mac" ]; then
-  export PATH="$HOME/.anaconda3/bin:$PATH"
+# if [ $MACHINE == "mac" ]; then
+#   export PATH="$HOME/.anaconda3/bin:$PATH"
 # else
   # removed because anaconda fucks stuff up ALL THE TIME
   # export PATH="$HOME/.local/share/anaconda3/bin:$PATH"
-fi
+# fi
 # Setup paths for virtualenv
 if [ -d $HOME/.virtualenvs ]; then
     export WORKON_HOME=$HOME/.virtualenvs
@@ -99,3 +111,7 @@ export NVM_DIR="$HOME/.nvm"
 # TODO: find better way to standardize this across systems particularly on arch
 #export XDG_CONFIG_HOME="${XDG_CONFIG_HOME}:$HOME/.config"
 
+# pyenv is a devops nightmare
+# if command -v pyenv 1>/dev/null 2>&1; then
+#   eval "$(pyenv init -)"
+# fi
