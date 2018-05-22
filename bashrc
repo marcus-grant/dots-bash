@@ -35,6 +35,7 @@ source "$BASH_CONFIGS_ROOT/bash_general.sh"
 # TODO: create it
 
 
+# TODO: These should be moved into exports, and for fzf perhaps somewhere else
 # source fzf - generated from fzf install script
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
