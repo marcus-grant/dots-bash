@@ -106,6 +106,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# npm path at home
+export PATH="$PATH:$HOME/.npm/bin"
+
 
 # set xdg's
 # TODO: find better way to standardize this across systems particularly on arch
