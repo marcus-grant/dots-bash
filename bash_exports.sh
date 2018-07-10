@@ -56,6 +56,9 @@ else
   export EDITOR="vim"
 fi
 
+# use the right locale
+export LANG=en_US.UTF-8
+
 # PATHs
 # TODO !!!!!! Be sure to migrate the .bashrc ones over to here instead
 
@@ -81,13 +84,7 @@ export GOBIN="$HOME/code/go/bin"
 # add a GOPATH for the .dotfiles/bash/prompts/ dir so the go-powerline can run
 # TODO: Disabled below for now because it might be fucking with resolutions.
 # export GOPATH="$GOPATH:$BASH_CONFIGS_ROOT/prompts"
-# Get and include anaconda's path based on "MACHINE" var
-# if [ $MACHINE == "mac" ]; then
-#   export PATH="$HOME/.anaconda3/bin:$PATH"
-# else
-  # removed because anaconda fucks stuff up ALL THE TIME
-  # export PATH="$HOME/.local/share/anaconda3/bin:$PATH"
-# fi
+
 # Setup paths for virtualenv
 if [ -d $HOME/.virtualenvs ]; then
     export WORKON_HOME=$HOME/.virtualenvs
@@ -110,14 +107,13 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # npm path at home
+npm config set prefix ~/.npm
 export PATH="$PATH:$HOME/.npm/bin"
 
+# program opts
+# compressors
+# export XZ_OPT="--threads=0"
 
 # set xdg's
 # TODO: find better way to standardize this across systems particularly on arch
 #export XDG_CONFIG_HOME="${XDG_CONFIG_HOME}:$HOME/.config"
-
-# pyenv is a devops nightmare
-# if command -v pyenv 1>/dev/null 2>&1; then
-#   eval "$(pyenv init -)"
-# fi

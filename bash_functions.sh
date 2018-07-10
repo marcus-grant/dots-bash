@@ -43,6 +43,14 @@ git-fetch-branches() {
 
 git-set-key() { eval $(ssh-agent); local keyPath="$HOME/.ssh/git.key"; ssh-add "$keyPath"; }
 
+# search-notes() {
+#     if [[ $# -ne 1 ]]; then
+#         echo "Argument Error! Please use exactly one argument for the search pattern"
+#         exit 1
+#     fi
+#     rg $1 $HOME/documents/dev-notes
+# }
+
 #}}}
 
 
