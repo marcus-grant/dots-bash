@@ -62,6 +62,8 @@ export LANG=en_US.UTF-8
 # PATHs
 # TODO !!!!!! Be sure to migrate the .bashrc ones over to here instead
 
+# /sbin should be in the path
+export PATH="/sbin:$PATH"
 # Add defulat local bin
 export PATH="$HOME/.local/bin:$PATH"
 # Home bin for my custom apps and scripts
