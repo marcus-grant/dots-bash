@@ -80,6 +80,9 @@ alias viml='vim "+set background=light"' #runs vim in a light colorscheme
 # QEMU-KVM virtual machine launch aliases
 alias loki="sudo $HOME/VMs/Loki/loki-start"
 alias loki-headless="sudo $HOME/VMs/Loki/loki-start-headless"
+
+# Locking/Suspend/Hibernate/Reboot to Bootloader
+alias lock-lightdm="dm-tool lock"
 #}}}
 
 # Git {{{
