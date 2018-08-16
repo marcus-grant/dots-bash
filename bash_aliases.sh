@@ -68,6 +68,7 @@ alias xup='xrdb $HOME/.Xresources'
 
 # Pacman
 alias pacman='sudo pacman --color always'
+alias reflector-default='sudo reflector --verbose --latest 32 --sort score --save /etc/pacman.d/mirrorlist'
 #}}}
 
 # Misc. {{{

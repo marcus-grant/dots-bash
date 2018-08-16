@@ -94,6 +94,13 @@ if [ -d $HOME/.virtualenvs ]; then
     export PIP_VIRTUALENV_BASE=$WORKON_HOME
 fi
 
+# anaconda for 'marcus' only as userspace python (if it exists)
+# if [ -d $HOME/.local/share/anaconda3/bin ]; then
+#     if [ "$(whoami)" == "marcus" ]; then
+#         export PATH=$HOME/.local/share/anaconda3/bin:$PATH
+#     fi
+# fi
+
 
 # fzf exports - from https://mike.place/2017/fzf-fd/
 export FZF_DEFAULT_COMMAND="fd --type f --hidden --exclude .git --exclude node_modules --exclude .cache --exclude .local --exclude .config"
