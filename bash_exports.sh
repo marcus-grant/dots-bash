@@ -73,6 +73,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # Go's GOPATH
 # export PATH="$PATH:$HOME/bin/go/bin"
 export PATH="$PATH:$HOME/code/go/bin"
+export PATH="$PATH:/usr/local/go/bin"
 # export GOPATH="$GOPATH:$HOME/bin/go"
 export GOPATH="$HOME/code/go"
 export GOBIN="$HOME/code/go/bin"
@@ -116,8 +117,15 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # npm path at home
-npm config set prefix ~/.npm
-export PATH="$PATH:$HOME/.npm/bin"
+if hash npm 2>/dev/null; then
+    npm config set prefix ~/.npm
+    export PATH="$PATH:$HOME/.npm/bin"
+fi
+
+# Export for NVM_DIR part of NVM bash subsystem
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # program opts
 # compressors
