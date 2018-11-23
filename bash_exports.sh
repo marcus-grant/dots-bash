@@ -117,10 +117,10 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # npm path at home
-if hash npm 2>/dev/null; then
-    npm config set prefix ~/.npm
-    export PATH="$PATH:$HOME/.npm/bin"
-fi
+#if hash npm 2>/dev/null; then
+#    npm config set prefix ~/.npm
+#    export PATH="$PATH:$HOME/.npm/bin"
+#fi
 
 # Export for NVM_DIR part of NVM bash subsystem
 export NVM_DIR="$HOME/.nvm"
