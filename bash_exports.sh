@@ -33,11 +33,14 @@ export MACHINE="$machine"
 # export TERM=xterm-256color
 # from  https://www.queryxchange.com/q/2_399296/256-color-support-for-vim-background-in-tmux/
 if [[ -z $TMUX ]]; then
-    if [ -e /usr/share/terminfo/x/xterm+256color ]; then # may be xterm-256 depending on your distro
-        export TERM='xterm-256color'
-    else
-        export TERM='xterm'
-    fi
+    # TODO: for some reason this path isn't in Ubuntu? Find alternative
+    #if [ -e /usr/share/terminfo/x/xterm+256color ]; then # may be xterm-256 depending on your distro
+        #export TERM='xterm-256color'
+    #else
+        #export TERM='xterm'
+    #fi
+    # Alternative, just force xterm-256color
+    export TERM='xterm-256color'
 else
     if [ -e /usr/share/terminfo/s/screen-256color ]; then
         export TERM='screen-256color'

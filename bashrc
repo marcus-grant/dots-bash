@@ -16,6 +16,12 @@
 #fi
 export BASH_CONFIGS_ROOT=$(dirname "$(readlink ~/.bash_profile)")
 
+# BASH Custom Config Variables
+export bashUseCDNVM=1 # remember false is anything but 0
+
+# TODO add local file inside gitignore to override these
+# source bash_local_vars.sh
+
 # need to get all other exports first
 source $BASH_CONFIGS_ROOT/bash_exports.sh
 

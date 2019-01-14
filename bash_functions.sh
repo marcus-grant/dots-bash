@@ -495,8 +495,11 @@ cdnvm(){
 }
 
 # Only use this alias if nvm is installed, if not it's a waste of time
-if hash nvim 2>/dev/null; then
-    alias cd='cdnvm'
+if hash nvm 2>/dev/null; then
+    if [ $bashUseCDNVM -eq 0 ]; then
+        # echo "cdnvm in use!"
+        alias cd='cdnvm'
+    fi
 fi
 
 
