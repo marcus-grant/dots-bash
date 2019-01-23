@@ -8,6 +8,10 @@
 #
 ########
 
+# TODO Move exports to correct new file that flattens exports
+#      - Look here for good info http://bit.ly/2RMAzFR
+# TODO Consider also making profile exports into ansible templates
+
 # Determine Host OS type & export to 'MACHINE'
 # NOTE: this needs to happen first because various other variables &
 # configs depend on what the host system is
@@ -74,12 +78,11 @@ export PATH="$HOME/bin:$PATH"
 # Rust's cargo package manager needs for there to be some kind of standard path
 export PATH="$HOME/.cargo/bin:$PATH"
 # Go's GOPATH
+export GOPATH="$HOME/.local/share/go:$HOME/code/go"
+#export GOBIN="$HOME/$XDG_DATA_DIRS/go/bin" # necessary?
+# its easier to let gopath determine
 # export PATH="$PATH:$HOME/bin/go/bin"
-export PATH="$PATH:$HOME/code/go/bin"
-export PATH="$PATH:/usr/local/go/bin"
-# export GOPATH="$GOPATH:$HOME/bin/go"
-export GOPATH="$HOME/code/go"
-export GOBIN="$HOME/code/go/bin"
+export PATH="$PATH:$GOPATH:/usr/local/go/bin"
 
 # pyenv - is a devops nightmare
 # export PYENV_ROOT="$HOME/.pyenv"
