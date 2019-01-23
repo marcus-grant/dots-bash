@@ -76,13 +76,16 @@ export PATH="$HOME/.local/bin:$PATH"
 # Home bin for my custom apps and scripts
 export PATH="$HOME/bin:$PATH"
 # Rust's cargo package manager needs for there to be some kind of standard path
+# TODO track this issue to see if this can be moved someplace like .local & .config
+# Heres the link: http://bit.ly/2RJmrxd
 export PATH="$HOME/.cargo/bin:$PATH"
 # Go's GOPATH
 export GOPATH="$HOME/.local/share/go:$HOME/code/go"
+export GOBIN="$HOME/.local/share/go/bin:$HOME/code/go/bin"
 #export GOBIN="$HOME/$XDG_DATA_DIRS/go/bin" # necessary?
 # its easier to let gopath determine
 # export PATH="$PATH:$HOME/bin/go/bin"
-export PATH="$PATH:$GOPATH:/usr/local/go/bin"
+export PATH="$PATH:$GOBIN"
 
 # pyenv - is a devops nightmare
 # export PYENV_ROOT="$HOME/.pyenv"
