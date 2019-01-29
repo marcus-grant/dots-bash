@@ -41,7 +41,8 @@ if hash archey3 2>/dev/null; then
 fi
 
 # Case-Insensitive Auto Completion
-bind "set completion-ignore-case on"
+# TODO this causes "no line editing enabled" error, needs fixing
+#bind "set completion-ignore-case on"
 
 # Git Bash Completion
 # Will activate bash git completion if installed
