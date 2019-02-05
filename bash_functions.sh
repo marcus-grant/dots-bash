@@ -428,9 +428,9 @@ view-markup ()
   function tmlk()   { tmux list-keys; }
 
 # set node permissions to whoami
-node-permissions-whoami () {
-  sudo chown -R $(whoami) $(npm config get prefix)/{lib/node_modules,bin,share}
-}
+# node-permissions-whoami () {
+#   sudo chown -R $(whoami) $(npm config get prefix)/{lib/node_modules,bin,share}
+# }
 
 # launch steam on arch
 function steam-arch {

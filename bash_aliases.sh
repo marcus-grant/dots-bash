@@ -84,9 +84,8 @@ alias loki-headless="sudo $HOME/VMs/Loki/loki-start-headless"
 
 # Locking/Suspend/Hibernate/Reboot to Bootloader
 alias lock-lightdm="dm-tool lock"
-#}}}
 
-# Git {{{
+# Git
 alias gcl="git clone"
 alias gst="git status"
 alias gl="git pull"
@@ -97,9 +96,8 @@ alias gca="git commit -v -a"
 alias gb="git branch"
 alias gba="git branch -a"
 alias gcam="git commit -am"
-#}}}
 
-# MacOS {{{
+# MacOS
 # different aliases based on if it's a mac
 # TODO: Verify that this works after splitting aliases into own file and passing args
 if [[ "$MACHINE" == 'mac' ]]; then
@@ -113,11 +111,9 @@ if [[ "$MACHINE" == "mac" ]]; then
   alias oxw='open *.xcw*'
   alias oxp='open *.xcod*'
 fi
-#}}}
 
-# WSL {{{
+# WSL
 if [[ "$MACHINE" == "wsl" ]]; then
     alias npm='/usr/bin/npm'
 fi
-#}}}
 
