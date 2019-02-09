@@ -2,6 +2,7 @@ TODOs
 =====
 
 - [ ] Split functions into categorized files
+- [ ] Include [`keychain`](https://www.funtoo.org/Keychain) to manage ssh keys once per reboot
 
 Planning
 ========
