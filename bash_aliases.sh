@@ -96,6 +96,10 @@ alias gca="git commit -v -a"
 alias gb="git branch"
 alias gba="git branch -a"
 alias gcam="git commit -am"
+alias glog="git log --format='%Cgreen%h%Creset %C(cyan)%an%Creset - %s' --graph"
+
+
+
 
 # MacOS
 # different aliases based on if it's a mac
