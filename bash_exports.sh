@@ -118,6 +118,9 @@ export FZF_DEFAULT_COMMAND="fd --type f --hidden --exclude .git --exclude node_m
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --hidden --exclude .git --exclude node_modules --exclude .cache --exclude .local -t d . /"
 
+# BASH Completion
+[[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
+    . /usr/share/bash-completion/bash_completion
 
 # n version manager, using nvm for now
 # export N_PREFIX=$HOME/.n
