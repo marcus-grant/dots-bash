@@ -1,2 +1,5 @@
 # Ignore the prompt link, ansible handles it
 prompts/prompt-link
+
+# Ignore the local bash config file
+local-bash.sh
