@@ -142,3 +142,8 @@ export NVM_DIR="$HOME/.local/share/nvm"
 # set xdg's
 # TODO: find better way to standardize this across systems particularly on arch
 #export XDG_CONFIG_HOME="${XDG_CONFIG_HOME}:$HOME/.config"
+
+# Load in the local settings if there are any
+if [ -f ~/.dots/bash/local-bash.sh ]; then
+    source ~/.dots/bash/local-bash.sh
+fi
