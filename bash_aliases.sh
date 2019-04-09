@@ -110,6 +110,10 @@ elif [[ "$MACHINE" == 'linux' ]]; then
   alias dev-notes='cd $HOME/documents/dev-notes'
 fi
 
+# Fix permission errors on brew's local env permissions in brew operations
+alias brew='sudo chown -R $(whoami):admin /usr/local/{lib,sbin,share} && brew'
+
+
 # MAC open xcode
 if [[ "$MACHINE" == "mac" ]]; then
   alias oxw='open *.xcw*'
