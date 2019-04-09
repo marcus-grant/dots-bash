@@ -33,6 +33,20 @@ if [[ $machine == "linux" ]]; then
 fi
 export MACHINE="$machine"
 
+###
+### Machine Specific Exports
+###
+
+### Mac
+if [[ $machine == 'mac' ]]; then
+    # ensure ncurses is in path
+    export PATH="$PATH:/usr/local/opt/ncurses/bin"
+    # For compilers to find ncurses you may need to set:
+    # (Related to brew ncurses complications)
+    export LDFLAGS="-L/usr/local/opt/ncurses/lib"
+    export CPPFLAGS="-I/usr/local/opt/ncurses/include"
+fi
+
 # Termite & iTerm with Tmux work best with xterm-256color
 # export TERM=xterm-256color
 # from  https://www.queryxchange.com/q/2_399296/256-color-support-for-vim-background-in-tmux/
