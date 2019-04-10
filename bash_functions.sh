@@ -10,11 +10,30 @@ t_error="[ERROR]:"
 
 # use fd to quickly search
 function fdf() {
-  if command -v fd >/dev/null; then
-    fd . $1 -H -E *.git* | fzf
-  else
-    find . $1 -type f | fzf
-  fi
+    # get args for commands to be used, ignoring greater than 2
+    # also set the default blanks for any of them beeing missing
+    searchPattern="$1"
+    searchPath="$2"
+    if [ $# -lt 2 ]; then
+        searchPath="./"
+    fi
+    if [ $# -lt 1 ]; then
+        searchPattern="."
+    fi
+
+    # Check if fd is present, use 'find' instead if not
+    if command -v fd >/dev/null; then
+        searchCommand="fd $searchPattern $searchPath -H | fzf"
+        # fd "$searchPattern" "$searchPath" -H -E *.git* | fzf
+        # fd "$searchPattern $searchPath" | fzf
+    else
+        # find "$searchPattern" "$searchPath" -type f | fzf
+        # find "$searchPattern $searchPath" -type f | fzf
+        searchCommand="find $searchPattern $searchPath -type f | fzf"
+    fi
+    eval $searchCommand
+    # echo "COMMAND: $searchCommand"
+    # TODO : should this have an exit code?
 }
 
 # fkill - uses fzf to find & kill (select then ENTER) a process
@@ -46,7 +65,7 @@ git-set-key() { eval $(ssh-agent); local keyPath="$HOME/.ssh/git.key"; ssh-add "
 # search-notes() {
 #     if [[ $# -ne 1 ]]; then
 #         echo "Argument Error! Please use exactly one argument for the search pattern"
-#         exit 1
+
 #     fi
 #     rg $1 $HOME/documents/dev-notes
 # }
