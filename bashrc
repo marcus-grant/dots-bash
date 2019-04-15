@@ -6,16 +6,12 @@
 #
 ########
 
-# TODO: Evaluate a fix for sftp type shells by detecting tty & skip configs
-# if it's a sftp/scp/ftp type shell, "SSH_TTY", then do nothing and exit
-#if [ !"$SSH_TTY" ]; then
 # make sure BASH_CONFIGS_ROOT is exported
-# first determine if there's a ~/.bashrc link, if not, use ~/.bash_profile
-#if [[ $HOME/.bashrc -L ]]; then
-#    export BASH_CONFIGS_ROOT=$(dirname "$(readlink ~/.bashrc)")
-#fi
-export BASH_CONFIGS_ROOT=$(dirname "$(readlink ~/.bash_profile)")
+if [ ! "$BASH_CONFIGS_ROOT" ]; then
+    export BASH_CONFIGS_ROOT=$(dirname "$(readlink ~/.bash_profile)")
+fi
 
+# TODO consider moving this to profile
 # BASH Custom Config Variables
 export bashUseCDNVM=1 # remember false is anything but 0
 
@@ -23,7 +19,8 @@ export bashUseCDNVM=1 # remember false is anything but 0
 # source bash_local_vars.sh
 
 # need to get all other exports first
-source $BASH_CONFIGS_ROOT/bash_exports.sh
+# TODO remove this if the movement of exports to profile works
+# source $BASH_CONFIGS_ROOT/bash_exports.sh
 
 # get absolute path to prompt link & use prompt link to get prompt
 source "$BASH_CONFIGS_ROOT/prompts/prompt-link"
@@ -45,6 +42,7 @@ source "$BASH_CONFIGS_ROOT/bash_general.sh"
 # source fzf - generated from fzf install script
 # [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
+# TODO Should these be moved to exports?
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/marcus/.local/share/google-cloud-sdk/path.bash.inc' ]; then source '/home/marcus/.local/share/google-cloud-sdk/path.bash.inc'; fi
 
