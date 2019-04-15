@@ -4,9 +4,14 @@
 # written by Marcus Grant (2016) of thepatternbuffer.io
 #
 
+# Bash profile which should be loading profile then bashrc
+# This should be for stuff that gets done once per login
+source ~/.profile
+
+# First get BASH_CONFIGS_ROOT
+
 # get the bash dotfiles directory path so other configs can use it
 # source profile loads environment stuff including id'ing host-specic stuff
-export BASH_CONFIGS_ROOT=$(dirname "$(readlink ~/.bash_profile)")
 source $BASH_CONFIGS_ROOT/bash_exports.sh
 
 # ------------------- Always end file with below --------------------------
