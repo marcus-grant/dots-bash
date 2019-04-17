@@ -26,7 +26,7 @@ alias recall-location='cd $tmp_location'
 # Filesystem (ls, grep, ...) {{{
 # Set all common options desired on ls first by replacing the default ls command, here, I want to force color always on ls
 # These things differ between Linux & Mac, so it's important to set aliases based on whether $MACHINE is "linux" or "mac"
-if [ $MACHINE == "mac" ]; then
+if [ "$MACHINE" == "mac" ]; then
     alias lsnc='ls'
     alias lnc="ls -lh"
     alias lc='ls -G'
