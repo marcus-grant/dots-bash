@@ -94,9 +94,9 @@ export PATH="$HOME/bin:$PATH"
 # Heres the link: http://bit.ly/2RJmrxd
 export PATH="$HOME/.cargo/bin:$PATH"
 # Go's GOPATH
-export GOPATH="$HOME/.local/share/go:$HOME/code/go"
-# export GOBIN="$HOME/.local/share/go/bin:$HOME/code/go/bin"
-#export GOBIN="$HOME/$XDG_DATA_DIRS/go/bin" # necessary?
+export GOPATH="$HOME/.local/share/go"
+# export GOPATH="$HOME/.local/share/go:$HOME/code/go"
+export PATH="$PATH:$HOME/.local/share/go/bin"
 # its easier to let gopath determine
 # export PATH="$PATH:$HOME/bin/go/bin"
 # export PATH="$PATH:$GOBIN"
@@ -104,12 +104,6 @@ export GOPATH="$HOME/.local/share/go:$HOME/code/go"
 # pyenv - is a devops nightmare
 # export PYENV_ROOT="$HOME/.pyenv"
 # export PATH="$PYENV_ROOT/bin:$PATH"
-
-# export GOBIN="$GOBIN:$HOME/bin/go/bin"
-# export GOBIN="$HOME/bin/go/bin"
-# add a GOPATH for the .dotfiles/bash/prompts/ dir so the go-powerline can run
-# TODO: Disabled below for now because it might be fucking with resolutions.
-# export GOPATH="$GOPATH:$BASH_CONFIGS_ROOT/prompts"
 
 # Setup paths for virtualenv
 if [ -d $HOME/.virtualenvs ]; then
