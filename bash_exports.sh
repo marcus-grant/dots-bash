@@ -84,22 +84,20 @@ export LANG=en_US.UTF-8
 # TODO !!!!!! Be sure to migrate the .bashrc ones over to here instead
 
 # /sbin should be in the path
-export PATH="/sbin:$PATH"
+export PATH="$PATH:/sbin"
 # Add defulat local bin
-export PATH="$HOME/.local/bin:$PATH"
+export PATH="$PATH:$HOME/.local/bin"
 # Home bin for my custom apps and scripts
-export PATH="$HOME/bin:$PATH"
-# Rust's cargo package manager needs for there to be some kind of standard path
+export PATH="$PATH:$HOME/bin"
+
+# Rust Vars
 # TODO track this issue to see if this can be moved someplace like .local & .config
 # Heres the link: http://bit.ly/2RJmrxd
-export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$PATH:$HOME/.cargo/bin"
+
 # Go's GOPATH
 export GOPATH="$HOME/.local/share/go"
-# export GOPATH="$HOME/.local/share/go:$HOME/code/go"
-export PATH="$PATH:$HOME/.local/share/go/bin"
-# its easier to let gopath determine
-# export PATH="$PATH:$HOME/bin/go/bin"
-# export PATH="$PATH:$GOBIN"
+export PATH="$PATH:$GOPATH"
 
 # pyenv - is a devops nightmare
 # export PYENV_ROOT="$HOME/.pyenv"
@@ -130,9 +128,6 @@ export FZF_ALT_C_COMMAND="fd --hidden --exclude .git --exclude node_modules --ex
 [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
     . /usr/share/bash-completion/bash_completion
 
-# n version manager, using nvm for now
-# export N_PREFIX=$HOME/.n
-
 export NVM_DIR="$HOME/.local/share/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -152,6 +147,6 @@ export NVM_DIR="$HOME/.local/share/nvm"
 #export XDG_CONFIG_HOME="${XDG_CONFIG_HOME}:$HOME/.config"
 
 # Load in the local settings if there are any
-if [ -f ~/.dots/bash/local-bash.sh ]; then
-    source ~/.dots/bash/local-bash.sh
-fi
+# if [ -f ~/.dots/bash/local-bash.sh ]; then
+#     source ~/.dots/bash/local-bash.sh
+# fi
