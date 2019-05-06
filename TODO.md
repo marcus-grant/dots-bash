@@ -13,6 +13,7 @@ Planning
     - .bash_profile then has some complications, investigate
 - [ ] Consider removing go-prompt stuff
     - It might be faster with all the features I want, do some profiling 1st
+- blah
 
 
 Complete
