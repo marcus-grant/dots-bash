@@ -132,7 +132,11 @@ __powerline() {
         #
         # fi
 
-        PS1="┌─$cwd$git\n└─$symbol "
+        # host@user
+        local names="[ $COLOR_FG_CYAN$(id -un)@$(hostname -f)$RESET ]-"
+
+
+        PS1="┌─$names$cwd$git\n└─$symbol "
     }
 
     PROMPT_COMMAND="ps1${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
