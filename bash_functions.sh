@@ -21,15 +21,29 @@ fdorfind() {
         searchPattern="."
     fi
 
+    # handle the case (only used by other funcs) where >= 3 args used
+    # the args above 2 will be actual fd (only) args/opts
+    local otherArgs=""
+    local argIter=1
+    if [ $# -gt 2 ]; then
+        for arg in "$@"
+        do
+            if [ $argIter -gt 2 ]; then
+                otherArgs="$otherArgs $arg"
+            fi
+            argIter=$((argIter + 1))
+        done
+    fi
+
     # Check if fd is present, use 'find' instead if not
     if command -v fd >/dev/null; then
-        searchCommand="fd $searchPattern $searchPath -H -E *.git*"
+        searchCommand="fd $searchPattern $searchPath $otherArgs -H -E *.git*"
         # fd "$searchPattern" "$searchPath" -H -E *.git* | fzf
         # fd "$searchPattern $searchPath" | fzf
     else
         # find "$searchPattern" "$searchPath" -type f | fzf
         # find "$searchPattern $searchPath" -type f | fzf
-        searchCommand="find $searchPattern $searchPath -type f"
+        searchCommand="find $searchPattern $searchPath $otherArgs -type f"
     fi
     eval $searchCommand
     # echo "COMMAND: $searchCommand"
@@ -128,11 +142,18 @@ fcd() {
 # use fd & fzf to find a file to edit (only arg is an optional root dir)
 # TODO consider moving to better section
 editfile() {
-    # handle the args only arg is root directory to look/create file
-    local rootDir="./"
-    if [ ! -z $1 ]; then rootDir="$1"; fi
-    # use fdf which uses either fd or find then fzf to find a directory
-    local editfilepath="$(fdf . $rootDir)"
+    # if there's more than one arg it's a special case where we
+    # pass on all arguments to fdf
+    if [ $# -gt 1 ]; then
+        local editfilepath="$(fdf . $@)"
+    else
+        # handle the args only arg is root directory to look/create file
+        local rootDir="./"
+        if [ ! -z $1 ]; then rootDir="$1"; fi
+        # use fdf which uses either fd or find then fzf to find a directory
+        local editfilepath="$(fdf . $rootDir)"
+    fi
+    if [ -z $editfilepath ]; then return 1; fi
     echo "Editing $editfilepath"
     # then use $EDITOR to create a new file with the prompted filename
     $EDITOR $editfilepath
@@ -190,6 +211,19 @@ editfilerg() {
     # then use $EDITOR to create a new file with the prompted filename
     echo "Editing $editfilepath"
     $EDITOR $editfilepath
+}
+
+# use editfile() in notes directory only
+# TODO consider other location for this func
+notedit() {
+    local searchPath="$MY_NOTES_DIR"
+    # if 2nd arg exists it's assumed as a path append to MY_NOTES_DIR
+    if [ $# -ge 1 ]; then searchPath="$searchPath/$1"; fi
+    # make sure there's no trailing '/'
+    if [ "${searchPath:-1}" == "/" ]; then searchPath="${searchPath::-1}"; fi
+    # append args for fd having to do with only including extensions like these
+    local searchFileExts="-e txt -e rst -e rtf -e html -e tex -e md"
+    editfile $searchPath $searchFileExts
 }
 
 

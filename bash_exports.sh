@@ -132,6 +132,11 @@ export NVM_DIR="$HOME/.local/share/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+######## Personal Exports {{{
+
+export MY_NOTES_DIR="~/Documents/notes"
+######## }}}
+
 # Export for NVM_DIR part of NVM bash subsystem
 # TODO: duplicate and look for cleaner methods
 # export NVM_DIR="$HOME/.nvm"
