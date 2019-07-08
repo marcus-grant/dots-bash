@@ -60,7 +60,7 @@ git-fetch-branches() {
   done
 }
 
-git-set-key() { eval $(ssh-agent); local keyPath="$HOME/.ssh/git.key"; ssh-add "$keyPath"; }
+
 
 # search-notes() {
 #     if [[ $# -ne 1 ]]; then
