@@ -82,8 +82,9 @@ fdfd() {
 rgf() {
     if [ $# -le 0 ]; then
         rg
-    elif [ ! -z $2 ]; then
+    elif [ $# -ge 2 ]; then
         local initDir="$(pwd)"
+        cd $2
         echo "$(rg --color always $1 | fzf --ansi)"
         cd $initDir
     else
