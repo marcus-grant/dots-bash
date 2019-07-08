@@ -118,15 +118,80 @@ git-fetch-branches() {
 }
 
 
+# cd with an fdfd ( fd or find | fzf ) directory search
 fcd() {
+  local dir
+  local destDir="$(fdfd $@)"
+  cd "$destDir"
+}
 
-# search-notes() {
-#     if [[ $# -ne 1 ]]; then
-#         echo "Argument Error! Please use exactly one argument for the search pattern"
+# use fd & fzf to find a file to edit (only arg is an optional root dir)
+# TODO consider moving to better section
+editfile() {
+    # handle the args only arg is root directory to look/create file
+    local rootDir="./"
+    if [ ! -z $1 ]; then rootDir="$1"; fi
+    # use fdf which uses either fd or find then fzf to find a directory
+    local editfilepath="$(fdf . $rootDir)"
+    echo "Editing $editfilepath"
+    # then use $EDITOR to create a new file with the prompted filename
+    $EDITOR $editfilepath
+}
 
-#     fi
-#     rg $1 $HOME/documents/dev-notes
-# }
+# use fd & fzf to find using fuzzy search a directory to open 
+# TODO consider moving it into its a better section
+editfiled() {
+    # handle the args only arg is root directory to look/create file
+    local rootDir="./"
+    if [ ! -z $1 ]; then rootDir="$1"; fi
+    # save current location to return to once done
+    local initDir="$(pwd)"
+    # use fdfd which uses either fd or find then fzf to find a directory
+    local dir="$(fdfd . $rootDir)"
+    # then prompt the user for a filename to placed in that directory
+    echo
+    echo "    Enter filename:"
+    read -p "    $dir/" newfilename
+    echo
+    # move to that directory
+    cd $dir
+    # then use $EDITOR to create a new file with the prompted filename
+    $EDITOR $newfilename
+    # return back to the initial call of this location's path
+    cd $initDir
+}
+
+# use rg & fzf to find a file to edit (only arg is an optional root dir)
+# TODO consider moving to better section
+editfilerg() {
+    local searchPath=""
+    # rgf/rg won't work without at least one arg
+    # call rg to show the expected error if it was entered into rg
+    # then return
+    if [ $# -le 0 ]; then rg; return 1; fi
+    # if there's a 2nd arg and it's not a path, things will break, exit w/ err
+    if [ $# -ge 2 ]; then
+        searchPath="$2"
+        # it's possible the last char is '/', that'll break stuff, cut it out
+        if [ "${searchPath: -1}" == "/" ]; then
+            searchPath="${searchPath::-1}"
+        fi
+        if [ ! -d $searchPath ]; then
+            echo "$searchPath: $(text-color red "No such file or directory")"
+            return 1
+        fi
+    fi
+    # use rgf to return a file and the line of the search pattern
+    # cut is used to only get the file path
+    local editfilepath="$(rgf $@ | cut -f1 -d":")"
+    if [ -z $editfilepath ]; then return 1; fi
+    # if a path was given as a root for the search, it has to be prepended
+    if [ $# -ge 2 ]; then editfilepath="$searchPath/$editfilepath"; fi
+    # then use $EDITOR to create a new file with the prompted filename
+    echo "Editing $editfilepath"
+    $EDITOR $editfilepath
+}
+
 
 #}}}
 
