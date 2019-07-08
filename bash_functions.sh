@@ -511,6 +511,37 @@ function steam-arch {
 
 #}}}
 
+################ Misc. Functions{{{
+
+# colors text based on a string red/green/blue/yellow/magenta/cyan
+text-color() {
+    local colorString=""
+    local inputString=""
+    if [ $# -ge 2 ]; then inputString=$2; fi
+    local resetString="\e[0m"
+    case "$1" in
+        red)
+            colorString="\e[31m"
+            ;;
+        green)
+            colorString="\e[32m"
+            ;;
+        yellow)
+            colorString="\e[33m"
+            ;;
+        blue)
+            colorString="\e[34m"
+            ;;
+        magenta)
+            colorString="\e[35m"
+            ;;
+        cyan)
+            colorString="\e[36m"
+            ;;
+    esac
+    echo -e "$colorString$inputString\e[0m"
+}
+################ }}}
 
 ###
 ### NVM - Helper functions
