@@ -6,6 +6,9 @@ machine=$1
 
 t_error="[ERROR]:"
 
+# TODO orphan, find home
+git-set-key() { eval $(ssh-agent); local keyPath="$HOME/.ssh/git.key"; ssh-add "$keyPath"; }
+
 ################ FZF, RipGrep, etc. Functions{{{
 
 # fdorfind - will use fd if available, else use find using fd syntax
@@ -643,6 +646,7 @@ function steam-arch {
 
 #}}}
 
+
 ################ Misc. Functions{{{
 
 # colors text based on a string red/green/blue/yellow/magenta/cyan
@@ -675,9 +679,8 @@ text-color() {
 }
 ################ }}}
 
-###
-### NVM - Helper functions
-###
+
+################ NVM Helpers {{{
 
 # TODO this is causing too many problems, disabling for now
 # find-up () {
