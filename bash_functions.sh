@@ -117,6 +117,7 @@ git-fetch-branches() {
 }
 
 
+fcd() {
 
 # search-notes() {
 #     if [[ $# -ne 1 ]]; then
