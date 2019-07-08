@@ -8,8 +8,8 @@ t_error="[ERROR]:"
 
 ################ FZF, RipGrep, etc. Functions{{{
 
-# use fd to quickly search
-function fdf() {
+# fdorfind - will use fd if available, else use find using fd syntax
+fdorfind() {
     # get args for commands to be used, ignoring greater than 2
     # also set the default blanks for any of them beeing missing
     searchPattern="$1"
@@ -23,13 +23,41 @@ function fdf() {
 
     # Check if fd is present, use 'find' instead if not
     if command -v fd >/dev/null; then
-        searchCommand="fd $searchPattern $searchPath -H | fzf"
+        searchCommand="fd $searchPattern $searchPath -H -E *.git*"
         # fd "$searchPattern" "$searchPath" -H -E *.git* | fzf
         # fd "$searchPattern $searchPath" | fzf
     else
         # find "$searchPattern" "$searchPath" -type f | fzf
         # find "$searchPattern $searchPath" -type f | fzf
-        searchCommand="find $searchPattern $searchPath -type f | fzf"
+        searchCommand="find $searchPattern $searchPath -type f"
+    fi
+    eval $searchCommand
+    # echo "COMMAND: $searchCommand"
+    # TODO : should this have an exit code?
+}
+
+# same as fdorfind but only fir dirs - really only used as a helper
+fdorfinddir() {
+    # get args for commands to be used, ignoring greater than 2
+    # also set the default blanks for any of them beeing missing
+    searchPattern="$1"
+    searchPath="$2"
+    if [ $# -lt 2 ]; then
+        searchPath="./"
+    fi
+    if [ $# -lt 1 ]; then
+        searchPattern="."
+    fi
+
+    # Check if fd is present, use 'find' instead if not
+    if command -v fd >/dev/null; then
+        searchCommand="fd $searchPattern $searchPath -H  -E *.git* -t d"
+        # fd "$searchPattern" "$searchPath" -H -E *.git* | fzf
+        # fd "$searchPattern $searchPath" | fzf
+    else
+        # find "$searchPattern" "$searchPath" -type f | fzf
+        # find "$searchPattern $searchPath" -type f | fzf
+        searchCommand="find $searchPattern $searchPath -type d"
     fi
     eval $searchCommand
     # echo "COMMAND: $searchCommand"
