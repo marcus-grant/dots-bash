@@ -64,6 +64,16 @@ fdorfinddir() {
     # TODO : should this have an exit code?
 }
 
+# use fd to quickly search
+function fdf() {
+    fdorfind $@ | fzf
+}
+
+# same as fdf but for directories only
+fdfd() {
+    fdorfinddir $@ | fzf
+}
+
 # fkill - uses fzf to find & kill (select then ENTER) a process
 # fkill - kill process
 fkill() {
