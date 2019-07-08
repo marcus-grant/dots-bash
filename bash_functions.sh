@@ -94,9 +94,15 @@ fdfd() {
 #    - this is to give clean output for fzf to parse through (colors)
 #    - once done it will return to where this function was called
 rgf() {
+    # no args is an error
     if [ $# -le 0 ]; then
         rg
+    # 2+ args means 2nd arg gets used to cd to that location
     elif [ $# -ge 2 ]; then
+        if [ ! -d "$2" ]; then
+            echo "$2: No such file or directory"
+            return 1
+        fi
         local initDir="$(pwd)"
         cd $2
         echo "$(rg --color always $1 | fzf --ansi)"
@@ -227,6 +233,20 @@ notedit() {
     # append args for fd having to do with only including extensions like these
     local searchFileExts="-e txt -e rst -e rtf -e html -e tex -e md"
     editfile $searchPath $searchFileExts
+}
+
+# uses editfilerg() PATTERN [PATH (appended to MY_NOTES_DIR)]
+noteditrg() {
+    local searchPattern=""
+    local searchPath="$MY_NOTES_DIR"
+    # append to search pattern if $1 exists
+    if [ ! -z $1 ]; then searchPattern="$1"; fi
+    # append to MY_NOTES_DIR if $2 exists
+    if [ ! -z $2 ]; then searchPath="$searchPath/$2"; fi
+    # make sure that the searchPath doesn't have trailing '/'
+    if [ "${searchPath:-1}" == "/" ]; then searchPath="${searchPath::-1}"; fi
+    # call editfiled
+    editfilerg $searchPattern $searchPath
 }
 
 # uses editfiled to create new file by fd (dir only) | fzf then opens editor on it
