@@ -74,6 +74,24 @@ fdfd() {
     fdorfinddir $@ | fzf
 }
 
+# uses rg to search a string in a directory's files fzf filters out one
+#  - pattern [path] as rg are the args
+#  - if a path is given it will go to that directory and run rg PATTERN
+#    - this is to give clean output for fzf to parse through (colors)
+#    - once done it will return to where this function was called
+rgf() {
+    if [ $# -le 0 ]; then
+        rg
+    elif [ ! -z $2 ]; then
+        local initDir="$(pwd)"
+        echo "$(rg --color always $1 | fzf --ansi)"
+        cd $initDir
+    else
+        echo "$(rg --color always $1 | fzf --ansi)"
+    fi
+}
+
+
 # fkill - uses fzf to find & kill (select then ENTER) a process
 # fkill - kill process
 fkill() {
