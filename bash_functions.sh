@@ -169,17 +169,20 @@ editfiled() {
     local initDir="$(pwd)"
     # use fdfd which uses either fd or find then fzf to find a directory
     local dir="$(fdfd . $rootDir)"
-    # then prompt the user for a filename to placed in that directory
-    echo
-    echo "    Enter filename:"
-    read -p "    $dir/" newfilename
-    echo
-    # move to that directory
-    cd $dir
-    # then use $EDITOR to create a new file with the prompted filename
-    $EDITOR $newfilename
-    # return back to the initial call of this location's path
-    cd $initDir
+    # in case you cancel out of the search exit this function cleanly
+    if [ ! -z $dir ]; then
+        # then prompt the user for a filename to placed in that directory
+        echo
+        echo "    Enter filename:"
+        read -p "    $dir/" newfilename
+        echo
+        # move to that directory
+        cd $dir
+        # then use $EDITOR to create a new file with the prompted filename
+        $EDITOR $newfilename
+        # return back to the initial call of this location's path
+        cd $initDir
+    fi
 }
 
 # use rg & fzf to find a file to edit (only arg is an optional root dir)
@@ -224,6 +227,16 @@ notedit() {
     # append args for fd having to do with only including extensions like these
     local searchFileExts="-e txt -e rst -e rtf -e html -e tex -e md"
     editfile $searchPath $searchFileExts
+}
+
+# uses editfiled to create new file by fd (dir only) | fzf then opens editor on it
+notenew() {
+    local searchPath="$MY_NOTES_DIR"
+    # only arg is prepending MY_NOTES_DIR 's path
+    if [ -z $1 ]; then searchPath="$searchPath/$1"; fi
+    # make sure there's no trailing '/'
+    if [ "${searchPath:-1}" == "/" ]; then searchPath="${searchPath::-1}"; fi
+    editfiled $searchPath
 }
 
 
