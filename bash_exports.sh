@@ -135,6 +135,7 @@ export NVM_DIR="$HOME/.local/share/nvm"
 ######## Personal Exports {{{
 
 export MY_NOTES_DIR="$HOME/Documents/notes"
+export MY_CODE_DIR="$HOME/Code"
 ######## }}}
 
 # Export for NVM_DIR part of NVM bash subsystem

@@ -7,7 +7,7 @@
 # Navigation (cd) {{{
 #CD - All cd aliases for quickly changing directories
 #  alias ios='cd $HOME/Dropbox/Dev/iOS'
-alias dev='cd $HOME/code'
+alias dev='cd $MY_CODE_DIR'
 alias pydev='cd $HOME/code/python'
 alias webdev='cd $HOME/code/web'
 alias aidev='cd $HOME/code/ai'

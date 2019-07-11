@@ -1,7 +1,6 @@
 TODOs
 =====
 
-- [ ] $MY_CODE_DIR export
 - [ ] fif() find-in-file with preview using rg from [this](http://bit.ly/2L7PIhi)
     - Consider adding a function that uses `fif` that uses MY_NOTES_DIR or MY_CODE_DIR
 - [ ] Split functions into categorized files
@@ -23,4 +22,5 @@ Planning
 Complete
 ========
 
+- [x] $MY_CODE_DIR export
 - [x] Add TODOs.md `5fd9aa2`
