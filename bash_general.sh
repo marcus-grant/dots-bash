@@ -8,20 +8,17 @@
 # TODO: Add an alternative profile for when intended to be installed on remote server, git ssh keys shouldn't be stored there, use HTTPS instead
 # TODO: OR consider a better private key passwording method
 # if a linux system, add all keychains in if statement below with paths
-if [ $MACHINE == "linux" -o $MACHINE == "wsl" ]; then
+if [ "$MACHINE" = "linux" ] || [ "$MACHINE" = "wsl" ]; then
   if [ -f $HOME/.ssh/git.key ]; then
+    if hash keychain 2>/dev/null; then
       eval $(keychain --eval --quiet $HOME/.ssh/git.key )
+    else
+      eval $(ssh-agent)
+      ssh-add $HOME/.ssh/git.key
+    fi
   else
       echo "Attempted to add git keychain, but no keyfile exists, ignoring..."
   fi
-#else
-  #if [ -f $HOME/.ssh/git.key ]; then
-      #eval "$(ssh-agent -s)"
-      #ssh-add -Kq $HOME/.ssh/git.key
-      #eval $(keychain --eval --quiet $HOME/.ssh/git.key )
-  #else
-      #echo "Attempted to add git keychain, but no keyfile exists, ignoring..."
-  #fi
 fi
 
 # WSL fix for default file mask 
