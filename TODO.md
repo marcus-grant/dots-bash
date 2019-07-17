@@ -1,6 +1,7 @@
 TODOs
 =====
 
+- [ ] Try putting the git and id_rsa keychaining conditional block in bash_general in bash_profile instead
 - [ ] fif() find-in-file with preview using rg from [this](http://bit.ly/2L7PIhi)
     - Consider adding a function that uses `fif` that uses MY_NOTES_DIR or MY_CODE_DIR
 - [ ] Split functions into categorized files
