@@ -23,7 +23,9 @@ export bashUseCDNVM=1 # remember false is anything but 0
 # source $BASH_CONFIGS_ROOT/bash_exports.sh
 
 # get absolute path to prompt link & use prompt link to get prompt
-source "$BASH_CONFIGS_ROOT/prompts/prompt-link"
+# source "$BASH_CONFIGS_ROOT/prompts/prompt-link"
+# TODO: A templater for using light or regular prompt file
+source "$BASH_CONFIGS_ROOT/prompts/bash-powerline.sh"
 
 # source helper functions
 source "$BASH_CONFIGS_ROOT/bash_functions.sh"
