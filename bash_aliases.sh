@@ -98,6 +98,15 @@ alias gba="git branch -a"
 alias gcam="git commit -am"
 alias glog="git log --format='%Cgreen%h%Creset %C(cyan)%an%Creset - %s' --graph"
 
+# Ansible & Molecule
+alias molcr="molecule create"
+alias molpr="molecule prepare"
+alias mols="molecule list"
+alias molco="molecule converge"
+alias molve="molecule verify"
+alias moli="molecule lint"
+alias molt="molecule test"
+
 
 
 
