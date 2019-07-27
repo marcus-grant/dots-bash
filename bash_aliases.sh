@@ -106,6 +106,7 @@ alias molco="molecule converge"
 alias molve="molecule verify"
 alias moli="molecule lint"
 alias molt="molecule test"
+alias molde="molecule destroy"
 
 
 
