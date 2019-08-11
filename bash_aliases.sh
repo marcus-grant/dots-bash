@@ -52,7 +52,7 @@ alias igrep='grep -i' # a grep alias for case insensitive searches
 #}}}
 
 # on debian fd installs as fdfind, change it to fd
-if [ command -v fdfind ]; then
+if command -v fdfind; then
     alias fd='fdfind'
 fi
 
