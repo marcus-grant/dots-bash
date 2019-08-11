@@ -51,6 +51,11 @@ alias grep='grep --color=auto'
 alias igrep='grep -i' # a grep alias for case insensitive searches
 #}}}
 
+# on debian fd installs as fdfind, change it to fd
+if [ command -v fdfind ]; then
+    alias fd='fdfind'
+fi
+
 # System (xclip, xserver, input) {{{
 
 # system sysctl service etc.
