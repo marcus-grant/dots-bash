@@ -117,6 +117,9 @@ fi
 #     fi
 # fi
 
+# Ansible
+# Disable cowsay for playbook runs
+export ANSIBLE_NOCOWS=1
 
 # fzf exports - from https://mike.place/2017/fzf-fd/
 export PATH="$PATH:$HOME/.local/share/fzf/bin"
