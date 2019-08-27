@@ -6,6 +6,8 @@
 #
 ########
 
+# TODO convert this into a templated file that defaults to this
+# the default rc sources should be the more minimal config
 # make sure BASH_CONFIGS_ROOT is exported
 if [ ! "$BASH_CONFIGS_ROOT" ]; then
     export BASH_CONFIGS_ROOT=$(dirname "$(readlink ~/.bash_profile)")
@@ -29,6 +31,9 @@ source "$BASH_CONFIGS_ROOT/prompts/bash-powerline.sh"
 
 # source helper functions
 source "$BASH_CONFIGS_ROOT/bash_functions.sh"
+
+# source fzf functions/vars/etc
+source "$BASH_CONFIGS_ROOT/fzf.bash"
 
 # source custom bash aliases
 source "$BASH_CONFIGS_ROOT/bash_aliases.sh"
