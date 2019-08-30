@@ -19,6 +19,16 @@ if [ "$MACHINE" = "linux" ] || [ "$MACHINE" = "wsl" ]; then
   else
       echo "Attempted to add git keychain, but no keyfile exists, ignoring..."
   fi
+  if [ -f $HOME/.ssh/id_rsa ]; then
+    if hash keychain 2>/dev/null; then
+      eval $(keychain --eval --quiet $HOME/.ssh/id_rsa )
+    else
+      eval $(ssh-agent)
+      ssh-add $HOME/.ssh/id_rsa
+    fi
+  else
+      echo "Attempted to default keychain, but no keyfile exists, ignoring..."
+  fi
 fi
 
 # WSL fix for default file mask 
