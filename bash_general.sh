@@ -17,7 +17,8 @@ if [ "$MACHINE" = "linux" ] || [ "$MACHINE" = "wsl" ]; then
       ssh-add $HOME/.ssh/git.key
     fi
   else
-      echo "Attempted to add git keychain, but no keyfile exists, ignoring..."
+      # echo "Attempted to add git keychain, but no keyfile exists, ignoring..."
+      :
   fi
   if [ -f $HOME/.ssh/id_rsa ]; then
     if hash keychain 2>/dev/null; then
@@ -27,7 +28,8 @@ if [ "$MACHINE" = "linux" ] || [ "$MACHINE" = "wsl" ]; then
       ssh-add $HOME/.ssh/id_rsa
     fi
   else
-      echo "Attempted to default keychain, but no keyfile exists, ignoring..."
+      # echo "Attempted to default keychain, but no keyfile exists, ignoring..."
+      :
   fi
 fi
 
