@@ -638,6 +638,13 @@ view-markup ()
   function tmk()    { tmux kill-session -t $1; }
   function tmr()    { tmux rename-session -t $1 $2; }
   function tmlk()   { tmux list-keys; }
+  function tmux() {
+      if [ $# -le 0 ]; then
+          command tmux -2 attach -t main || command tmux -2 new -s main;
+      else
+          command tmux "$@" 
+      fi
+  }
 
 # launch steam on arch
 function steam-arch {

@@ -1,6 +1,10 @@
 TODOs
 =====
 
+- [ ] Add shadowed `tmux` func that creates a session `main` or opens in it
+- [ ] Ensure tmux funcs/alias with `-2` *ie 256color* option doesn't mess with styles
+    - This includes less not italicizing highlights instead of bg color change
+    - This includes nvim colors particularly in the airlines not mucking up
 - [ ] Refactor naming of sub files to use .bash extension
 - [ ] Refactor naming of sub files to exclude `bash_*`
 - [ ] Try putting the git and id_rsa keychaining conditional block in bash_general in bash_profile instead
