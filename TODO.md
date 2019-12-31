@@ -22,11 +22,13 @@ Planning
     - .bash_profile then has some complications, investigate
     - It might be faster with all the features I want, do some profiling 1st
 - [ ] Make fzf into either an ansible controlled copy or git submodule
+- [ ] Figure out how to have `EDITOR` be (n)vim & `VISUAL` be gedit without having terminal apps invoke `VISUAL`
 
 
 Complete
 ========
 
+- [x] Make `EDITOR` = nvim or vim instead
 - [x] Add fzf.bash as a copy of the junnegun/fzf repo's
 - [x] Consider removing go-prompt stuff
 - [x] $MY_CODE_DIR export

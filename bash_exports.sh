@@ -67,7 +67,7 @@ else
     fi
   fi
 # Editor vars
-export VISUAL="gedit"
+# export VISUAL="gedit"
 # determine if nvim is installed and use instead of vim if so
 if hash nvim 2>/dev/null; then
   export GIT_EDITOR="nvim"
