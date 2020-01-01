@@ -18,7 +18,9 @@ fi
 export bashUseCDNVM=1 # remember false is anything but 0
 
 # TODO add local file inside gitignore to override these
-# source bash_local_vars.sh
+if [ -f bash_local_vars ]; then
+    source bash_local_vars.sh
+fi
 
 # need to get all other exports first
 # TODO remove this if the movement of exports to profile works
