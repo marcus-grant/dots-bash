@@ -97,7 +97,7 @@ export PATH="$PATH:$HOME/.cargo/bin"
 
 # Go's GOPATH
 export GOPATH="$HOME/.local/share/go"
-export PATH="$PATH:$GOPATH"
+export PATH="$PATH:$GOPATH/bin"
 
 # pyenv - is a devops nightmare
 # export PYENV_ROOT="$HOME/.pyenv"
