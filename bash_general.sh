@@ -11,25 +11,30 @@
 if [ "$MACHINE" = "linux" ] || [ "$MACHINE" = "wsl" ]; then
   if [ -f $HOME/.ssh/git.key ]; then
     if hash keychain 2>/dev/null; then
-      eval $(keychain --eval --quiet $HOME/.ssh/git.key )
+      eval $(keychain --eval --quiet --noask $HOME/.ssh/git.key )
+      # TODO: figure out why keychain complains: "Problem adding; giving up"
+      # eval $(ssh-agent)
+      # ssh-add $HOME/.ssh/git.key
     else
       eval $(ssh-agent)
       ssh-add $HOME/.ssh/git.key
     fi
-  else
+  # else
       # echo "Attempted to add git keychain, but no keyfile exists, ignoring..."
-      :
   fi
   if [ -f $HOME/.ssh/id_rsa ]; then
     if hash keychain 2>/dev/null; then
-      eval $(keychain --eval --quiet $HOME/.ssh/id_rsa )
+      eval $(keychain --eval --quiet --noask $HOME/.ssh/id_rsa )
+      # eval $(keychain --eval --quiet $HOME/.ssh/git.key )
+      # TODO: figure out why keychain complains: "Problem adding; giving up"
+      # eval $(ssh-agent)
+      # ssh-add $HOME/.ssh/id_rsa
     else
       eval $(ssh-agent)
       ssh-add $HOME/.ssh/id_rsa
     fi
-  else
+  # else
       # echo "Attempted to default keychain, but no keyfile exists, ignoring..."
-      :
   fi
 fi
 
