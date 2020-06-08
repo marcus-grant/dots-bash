@@ -5,6 +5,14 @@ TODOs
 Current
 -------
 
+- [ ] If not running interactively dont do anythin
+```bash
+case $- in 
+    *i*) ;;
+      *) return;;
+case
+```
+- [ ] Consider histappend for history appending instead of overwrite `shopt -s histappend`
 - [ ] Edit prompt to truncate path to single character till prompt fits
 - [ ] Edit prompt to hide `$user@host` if...
     - path is too long to fit deepest directory
