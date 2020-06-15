@@ -53,7 +53,7 @@ alias igrep2='igrep -A 2 -B 2'
 #}}}
 
 # on debian fd installs as fdfind, change it to fd
-if $(command -v fdfind); then
+if hash fdfind 2>/dev/null ; then
     alias fd='fdfind'
 fi
 

@@ -100,43 +100,40 @@ __powerline() {
             local symbol="$SYMBOL_FAILURE"
         fi
 
-        local cwd="[ $COLOR_CWD\w$RESET ]"
         # Bash by default expands the content of PS1 unless promptvars is disabled.
         # We must use another layer of reference to prevent expanding any user
         # provided strings, which would cause security issues.
         # POC: https://github.com/njhartwell/pw3nage
-        # Related fix in git-bash: https://github.com/git/git/blob/9d77b0405ce6b471cb5ce3a904368fc25e55643d/contrib/completion/git-prompt.sh#L324
+        # Related fix in git-bash:
+        # https://github.com/git/git/blob/9d77b0405ce6b471cb5ce3a904368fc25e55643d/contrib/completion/git-prompt.sh#L324
         __powerline_git_info="$(__git_info)"
         if [ -z "$__powerline_git_info" ]; then
             local git=""
         else
             local git="─[$COLOR_GIT\${__powerline_git_info}$RESET ]"
         fi
-        # TODO Deleteme? need to detect if git is present
-        # if shopt -q promptvars; then
-        #     __powerline_git_info="$(__git_info)"
-        #     if [ -z "$__powerline_git_info" ]; then
-        #         local git=""
-        #     else
-        #         local git="─[ $COLOR_GIT\${__powerline_git_info}$RESET ]"
-        #     fi
-        # else # TODO I might actually enforce extra referencing for safey DELETEME?
-        #     # promptvars is disabled. Avoid creating unnecessary env var.
-        #     # local git="─[ $COLOR_GIT$(__git_info)$RESET ]"
-        #     __powerline_git_info="$(__git_info)"
-        #     if [ -z "$__powerline_git_info" ]; then
-        #         local git=""
-        #     else
-        #         local git="─[ $COLOR_GIT\${__powerline_git_info}$RESET ]"
-        #     fi
-        #
-        # fi
 
         # host@user
         local names="[ $COLOR_FG_CYAN$(id -un)@\h$RESET ]-"
 
+        # Check the length of the the directory string (including /home/USER if inside)
+        local pwdstr="$(pwd)"
+        local cwdlen=${#pwdstr}
 
-        PS1="┌─$names$cwd$git\n└─$symbol "
+        # Assuming user@host & git branch & /home/user is no longer than 48
+        # check if COLUMNS - 48 is smaller than cwd
+        if (( cwdlen > ( COLUMNS - 48 ) )); then
+            local cwd="[ $COLOR_CWD\W$RESET ]"
+        else
+            local cwd="[ $COLOR_CWD\w$RESET ]"
+        fi
+
+        # put together the initial version top and bottom lines of the prompt
+        local botLine="└─$symbol"
+        local topLine="┌─$names$cwd$git"
+
+        # Finally put together PS1
+        PS1="$topLine\n$botLine "
     }
 
     PROMPT_COMMAND="ps1${PROMPT_COMMAND:+; $PROMPT_COMMAND}"

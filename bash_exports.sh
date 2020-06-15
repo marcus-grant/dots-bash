@@ -67,7 +67,7 @@ else
     fi
   fi
 # Editor vars
-export VISUAL="gedit"
+# export VISUAL="gedit"
 # determine if nvim is installed and use instead of vim if so
 if hash nvim 2>/dev/null; then
   export GIT_EDITOR="nvim"
@@ -97,7 +97,7 @@ export PATH="$PATH:$HOME/.cargo/bin"
 
 # Go's GOPATH
 export GOPATH="$HOME/.local/share/go"
-export PATH="$PATH:$GOPATH"
+export PATH="$PATH:$GOPATH/bin"
 
 # pyenv - is a devops nightmare
 # export PYENV_ROOT="$HOME/.pyenv"
