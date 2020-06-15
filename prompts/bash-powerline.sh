@@ -133,7 +133,7 @@ __powerline() {
         # fi
 
         # host@user
-        local names="[ $COLOR_FG_CYAN$(id -un)@$(hostname -f)$RESET ]-"
+        local names="[ $COLOR_FG_CYAN$(id -un)@\h$RESET ]-"
 
 
         PS1="┌─$names$cwd$git\n└─$symbol "

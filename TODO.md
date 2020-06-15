@@ -1,6 +1,11 @@
 TODOs
 =====
 
+Current
+=======
+
+- [ ] `igrep2` alias for case insensitive & `-A 2` & `-B 2` filtering after and before 2 lines respectively
+- [ ] Make `fzf`, `fd`, `rg` functions more useful, particularly `fdf`
 - [ ] Add shadowed `tmux` func that creates a session `main` or opens in it
 - [ ] Ensure tmux funcs/alias with `-2` *ie 256color* option doesn't mess with styles
     - This includes less not italicizing highlights instead of bg color change
