@@ -49,6 +49,7 @@ fi
 # Grep
 alias grep='grep --color=auto'
 alias igrep='grep -i' # a grep alias for case insensitive searches
+alias igrep2='igrep -A 2 -B 2'
 #}}}
 
 # on debian fd installs as fdfind, change it to fd

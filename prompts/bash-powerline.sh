@@ -114,7 +114,7 @@ __powerline() {
         fi
 
         # host@user
-        local names="[ $COLOR_FG_CYAN$(id -un)@$(hostname -f)$RESET ]-"
+        local names="[ $COLOR_FG_CYAN$(id -un)@\h$RESET ]-"
 
         # Check the length of the the directory string (including /home/USER if inside)
         local pwdstr="$(pwd)"

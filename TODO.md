@@ -1,16 +1,34 @@
 TODOs
 =====
 
-
 Current
--------
+=======
 
+- [ ] If not running interactively dont do anythin
+```bash
+case $- in 
+    *i*) ;;
+      *) return;;
+case
+```
+- [ ] Make `fzf`, `fd`, `rg` functions more useful, particularly `fdf`
+- [ ] Add shadowed `tmux` func that creates a session `main` or opens in it
+- [ ] Ensure tmux funcs/alias with `-2` *ie 256color* option doesn't mess with styles
+    - This includes less not italicizing highlights instead of bg color change
+    - This includes nvim colors particularly in the airlines not mucking up
+- [ ] Refactor naming of sub files to use .bash extension
+- [ ] Refactor naming of sub files to exclude `bash_*`
+- [ ] Consider histappend for history appending instead of overwrite `shopt -s histappend`
 - [ ] Edit prompt to truncate path to single character till prompt fits
 - [ ] Edit prompt to hide `$user@host` if...
     - path is too long to fit deepest directory
     - **NOT** on remote or root user
 - [ ] Edit prompt to highlight root user as red if root
 - [ ] Edit prompt to highlight host as CYAN/MAGENTA/PURPLE if remote
+
+Current
+-------
+
 - [ ] Try putting the git and id_rsa keychaining conditional block in bash_general in bash_profile instead
 - [ ] fif() find-in-file with preview using rg from [this](http://bit.ly/2L7PIhi)
     - Consider adding a function that uses `fif` that uses MY_NOTES_DIR or MY_CODE_DIR
@@ -39,6 +57,7 @@ Planning
 Complete
 --------
 
+- [x] `igrep2` alias for case insensitive & `-A 2` & `-B 2` filtering after and before 2 lines respectively
 - [x] Add shadowed `tmux` func that creates a session `main` or opens in it
 - [x] Fix `PATH` to set home gobin to `~/.local/share/go/bin`
 - [x] Make `EDITOR` = nvim or vim instead
