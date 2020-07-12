@@ -131,29 +131,27 @@ export FZF_ALT_C_COMMAND="fd --hidden --exclude .git --exclude node_modules --ex
 [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
     . /usr/share/bash-completion/bash_completion
 
-# export NVM_DIR="$HOME/.local/share/nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
+# set xdg's
+# TODO: find better way to standardize this across systems particularly on arch
+#export XDG_CONFIG_HOME="${XDG_CONFIG_HOME}:$HOME/.config"
+# NOTE this is a temporary solution for XDG_CONFIG_HOME
+# Because XDG_CONFIG_HOME is searched for in nvm.sh's instal script
+# NVM_DIR becomes XDG/nvm
+export XDG_CONFIG_HOME="$HOME/.config"
+# Taken from https://github.com/nvm-sh/nvm#troubleshooting-on-linux ...
+# This will set NVM_DIR to use XDG_CONFIG_HOME/nvm or $HOME/.nvm
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 ######## Personal Exports {{{
 
 export MY_NOTES_DIR="$HOME/Documents/notes"
 export MY_CODE_DIR="$HOME/Code"
 ######## }}}
 
-# Export for NVM_DIR part of NVM bash subsystem
-# TODO: duplicate and look for cleaner methods
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 # program opts
 # compressors
 # export XZ_OPT="--threads=0"
 
-# set xdg's
-# TODO: find better way to standardize this across systems particularly on arch
-#export XDG_CONFIG_HOME="${XDG_CONFIG_HOME}:$HOME/.config"
 
 # Load in the local settings if there are any
 # if [ -f ~/.dots/bash/local-bash.sh ]; then
