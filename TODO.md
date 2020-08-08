@@ -4,6 +4,7 @@ TODOs
 Current
 =======
 
+- [ ] Fix keychain not correctly adding keys
 - [ ] If not running interactively dont do anythin
 ```bash
 case $- in 

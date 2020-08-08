@@ -58,7 +58,9 @@ if [ -f '/home/marcus/.local/share/google-cloud-sdk/path.bash.inc' ]; then sourc
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/marcus/.local/share/google-cloud-sdk/completion.bash.inc' ]; then source '/home/marcus/.local/share/google-cloud-sdk/completion.bash.inc'; fi
 
-# TODO: Improve nvm system, this was added automatically
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# TODO: consider moving this and automatic nvm on your own somehow
+# Export for NVM_DIR part of NVM bash subsystem
+if [ -d $XDG_CONFIG_HOME ]; then
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+fi
