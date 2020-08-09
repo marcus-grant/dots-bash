@@ -1,0 +1,8 @@
+# This is runs the normal ~/.dots/bash/bash_profile, but only AFTER
+# enforcing a wayland session during tty1 login
+source "$HOME/.dots/bash/bash_profile"
+
+# Taken from https://wiki.archlinux.org/index.php/GNOME#Wayland_sessions
+if [[ -z $DISPLAY && $(tty) == /dev/tty1 && $XDG_SESSION_TYPE == tty ]]; then
+  MOZ_ENABLE_WAYLAND=1 QT_QPA_PLATFORM=wayland XDG_SESSION_TYPE=wayland exec dbus-run-session gnome-session
+fi

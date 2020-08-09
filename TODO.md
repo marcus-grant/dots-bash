@@ -58,6 +58,7 @@ Planning
 Complete
 --------
 
+- [x] Add forced wayland version of bash profile to be linked to from `~/.bash_profile` to force wayland on systems 
 - [x] `igrep2` alias for case insensitive & `-A 2` & `-B 2` filtering after and before 2 lines respectively
 - [x] Add shadowed `tmux` func that creates a session `main` or opens in it
 - [x] Fix `PATH` to set home gobin to `~/.local/share/go/bin`

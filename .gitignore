@@ -3,3 +3,6 @@ prompts/prompt-link
 
 # Ignore the local bash config file
 local-bash.sh
+
+# Ignore local bashes
+local_*
