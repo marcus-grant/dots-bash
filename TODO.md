@@ -4,13 +4,14 @@ TODOs
 Current
 =======
 
+- [ ] alias: `show-desktop-session-type` to show what desktop renderer is in use (*ie x11 or wayland*)
 - [ ] Fix keychain not correctly adding keys
 - [ ] If not running interactively dont do anythin
 ```bash
 case $- in 
     *i*) ;;
       *) return;;
-case
+esac
 ```
 - [ ] Make `fzf`, `fd`, `rg` functions more useful, particularly `fdf`
 - [ ] Add shadowed `tmux` func that creates a session `main` or opens in it
