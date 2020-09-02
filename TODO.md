@@ -1,9 +1,19 @@
 TODOs
 =====
 
-- [ ] Fix ssh-agent not adding keys 
-    - [ ] Also consider not using seperate git & id_rsa keys
-- [ ] Fix `PATH` to set home gobin to `~/.local/share/go/bin`
+Current
+=======
+
+- [ ] alias: `show-desktop-session-type` to show what desktop renderer is in use (*ie x11 or wayland*)
+- [ ] Fix keychain not correctly adding keys
+- [ ] If not running interactively dont do anythin
+```bash
+case $- in 
+    *i*) ;;
+      *) return;;
+esac
+```
+- [ ] Make `fzf`, `fd`, `rg` functions more useful, particularly `fdf`
 - [ ] Add shadowed `tmux` func that creates a session `main` or opens in it
 - [ ] Ensure tmux funcs/alias with `-2` *ie 256color* option doesn't mess with styles
     - This includes less not italicizing highlights instead of bg color change
@@ -31,6 +41,11 @@ Planning
 Complete
 ========
 
+- [x] Fix ssh-agent not adding keys 
+- [x] Add forced wayland version of bash profile to be linked to from `~/.bash_profile` to force wayland on systems 
+- [x] `igrep2` alias for case insensitive & `-A 2` & `-B 2` filtering after and before 2 lines respectively
+- [x] Add shadowed `tmux` func that creates a session `main` or opens in it
+- [x] Fix `PATH` to set home gobin to `~/.local/share/go/bin`
 - [x] Make `EDITOR` = nvim or vim instead
 - [x] Add fzf.bash as a copy of the junnegun/fzf repo's
 - [x] Consider removing go-prompt stuff

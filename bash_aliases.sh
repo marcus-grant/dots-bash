@@ -69,12 +69,14 @@ alias bash-reload-rc='source $HOME/.bashrc'
 alias clipin='xclip -i -selection clipboard'
 alias clipout='xclip -o -selection clipboard'
 
-# Xresources
-alias xup='xrdb $HOME/.Xresources'
 
 # Pacman
 alias pacman='sudo pacman --color always'
 alias reflector-default='sudo reflector --verbose --latest 32 --sort score --save /etc/pacman.d/mirrorlist'
+
+# Desktop Environment
+alias xup='xrdb $HOME/.Xresources' # reload xresources
+alias show-desktop-session-type="loginctl show-session $(awk '/tty/ {print $1}' <(loginctl)) -p Type | awk -F= '{print $2}'"
 #}}}
 
 # Misc. {{{
