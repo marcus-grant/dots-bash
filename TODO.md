@@ -1,47 +1,23 @@
 TODOs
 =====
 
-Current
-=======
-
-- [ ] Fix keychain not correctly adding keys
-- [ ] If not running interactively dont do anythin
-```bash
-case $- in 
-    *i*) ;;
-      *) return;;
-case
-```
-- [ ] Make `fzf`, `fd`, `rg` functions more useful, particularly `fdf`
+- [ ] Fix ssh-agent not adding keys 
+    - [ ] Also consider not using seperate git & id_rsa keys
+- [ ] Fix `PATH` to set home gobin to `~/.local/share/go/bin`
 - [ ] Add shadowed `tmux` func that creates a session `main` or opens in it
 - [ ] Ensure tmux funcs/alias with `-2` *ie 256color* option doesn't mess with styles
     - This includes less not italicizing highlights instead of bg color change
     - This includes nvim colors particularly in the airlines not mucking up
 - [ ] Refactor naming of sub files to use .bash extension
 - [ ] Refactor naming of sub files to exclude `bash_*`
-- [ ] Consider histappend for history appending instead of overwrite `shopt -s histappend`
-- [ ] Edit prompt to truncate path to single character till prompt fits
-- [ ] Edit prompt to hide `$user@host` if...
-    - path is too long to fit deepest directory
-    - **NOT** on remote or root user
-- [ ] Edit prompt to highlight root user as red if root
-- [ ] Edit prompt to highlight host as CYAN/MAGENTA/PURPLE if remote
-
-Current
--------
-
 - [ ] Try putting the git and id_rsa keychaining conditional block in bash_general in bash_profile instead
 - [ ] fif() find-in-file with preview using rg from [this](http://bit.ly/2L7PIhi)
     - Consider adding a function that uses `fif` that uses MY_NOTES_DIR or MY_CODE_DIR
 - [ ] Split functions into categorized files
 - [ ] Include [`keychain`](https://www.funtoo.org/Keychain) to manage ssh keys once per reboot
-- [ ] Refactor naming of sub files to use .bash extension
-- [ ] Refactor naming of sub files to exclude `bash_*`
-- [ ] Add 
-
 
 Planning
---------
+========
 
 - [ ] Add as many of [these](http://bit.ly/2L7PIhi) as possible
 - [ ] Figure out how to properly split one time exports into other files
@@ -50,17 +26,11 @@ Planning
     - It might be faster with all the features I want, do some profiling 1st
 - [ ] Make fzf into either an ansible controlled copy or git submodule
 - [ ] Figure out how to have `EDITOR` be (n)vim & `VISUAL` be gedit without having terminal apps invoke `VISUAL`
-- [ ] **IS THIS STILL AN ISSUE?** Ensure tmux funcs/alias with `-2` *ie 256color* option doesn't mess with styles
-    - This includes less not italicizing highlights instead of bg color change
-    - This includes nvim colors particularly in the airlines not mucking up
 
 
 Complete
---------
+========
 
-- [x] `igrep2` alias for case insensitive & `-A 2` & `-B 2` filtering after and before 2 lines respectively
-- [x] Add shadowed `tmux` func that creates a session `main` or opens in it
-- [x] Fix `PATH` to set home gobin to `~/.local/share/go/bin`
 - [x] Make `EDITOR` = nvim or vim instead
 - [x] Add fzf.bash as a copy of the junnegun/fzf repo's
 - [x] Consider removing go-prompt stuff

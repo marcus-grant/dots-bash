@@ -8,35 +8,42 @@
 # TODO: Add an alternative profile for when intended to be installed on remote server, git ssh keys shouldn't be stored there, use HTTPS instead
 # TODO: OR consider a better private key passwording method
 # if a linux system, add all keychains in if statement below with paths
-if [ "$MACHINE" = "linux" ] || [ "$MACHINE" = "wsl" ]; then
-  if [ -f $HOME/.ssh/git.key ]; then
-    if hash keychain 2>/dev/null; then
-      eval $(keychain --eval --quiet --noask $HOME/.ssh/git.key )
-      # TODO: figure out why keychain complains: "Problem adding; giving up"
-      # eval $(ssh-agent)
-      # ssh-add $HOME/.ssh/git.key
-    else
-      eval $(ssh-agent)
-      ssh-add $HOME/.ssh/git.key
-    fi
-  # else
-      # echo "Attempted to add git keychain, but no keyfile exists, ignoring..."
-  fi
-  if [ -f $HOME/.ssh/id_rsa ]; then
-    if hash keychain 2>/dev/null; then
-      eval $(keychain --eval --quiet --noask $HOME/.ssh/id_rsa )
-      # eval $(keychain --eval --quiet $HOME/.ssh/git.key )
-      # TODO: figure out why keychain complains: "Problem adding; giving up"
-      # eval $(ssh-agent)
-      # ssh-add $HOME/.ssh/id_rsa
-    else
-      eval $(ssh-agent)
-      ssh-add $HOME/.ssh/id_rsa
-    fi
-  # else
-      # echo "Attempted to default keychain, but no keyfile exists, ignoring..."
-  fi
-fi
+# if [ "$MACHINE" = "linux" ] || [ "$MACHINE" = "wsl" ]; then
+#   if [ -f $HOME/.ssh/git.key ]; then
+#     # Stopping use of keychain for now, remove if not used anymore
+#     # if hash keychain 2>/dev/null; then
+#     #   # TODO: figure out why keychain complains: "Problem adding; giving up"
+#     #   # eval $(keychain --eval --quiet --noask $HOME/.ssh/git.key )
+#     #   # TODO find out why keychain isn't working or just stick with ssh-agent
+#     #   eval $(ssh-agent)
+#     #   ssh-add $HOME/.ssh/git.key
+#     # else
+#     #   eval $(ssh-agent)
+#     #   ssh-add $HOME/.ssh/git.key
+#     # fi
+#   # else
+#       # echo "Attempted to add git keychain, but no keyfile exists, ignoring..."
+#     eval "$(ssh-agent -s)"
+#     ssh-add -K $HOME/.ssh/git.key
+#   fi
+#   if [ -f $HOME/.ssh/id_rsa ]; then
+#     # Disabling keychain use for now
+#     # if hash keychain 2>/dev/null; then
+#     #   # eval $(keychain --eval --quiet --noask $HOME/.ssh/id_rsa )
+#     #   # eval $(keychain --eval --quiet $HOME/.ssh/git.key )
+#     #   # TODO: figure out why keychain complains: "Problem adding; giving up"
+#     #   eval $(ssh-agent)
+#     #   ssh-add $HOME/.ssh/id_rsa
+#     # else
+#     #   eval $(ssh-agent)
+#     #   ssh-add $HOME/.ssh/id_rsa
+#     # fi
+#   # else
+#       # echo "Attempted to default keychain, but no keyfile exists, ignoring..."
+#     eval "$(ssh-agent -s)"
+#     ssh-add -K $HOME/.ssh/id_rsa
+#   fi
+# fi
 
 # WSL fix for default file mask 
 # WSL for some stupid reason sets the most permissive...
