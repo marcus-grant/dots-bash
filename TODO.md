@@ -4,6 +4,7 @@ TODOs
 Current
 =======
 
+- [ ] fix: alias for `lsblk` that hides `/snap/*` lines for snap loopbacks
 - [ ] alias: `show-desktop-session-type` to show what desktop renderer is in use (*ie x11 or wayland*)
 - [ ] Fix keychain not correctly adding keys
 - [ ] If not running interactively dont do anythin
