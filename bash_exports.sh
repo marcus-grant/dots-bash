@@ -142,11 +142,12 @@ export XDG_CONFIG_HOME="$HOME/.config"
 # This will set NVM_DIR to use XDG_CONFIG_HOME/nvm or $HOME/.nvm
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-######## Personal Exports {{{
-
+######## Personal Exports
 export MY_NOTES_DIR="$HOME/Documents/notes"
 export MY_CODE_DIR="$HOME/Code"
-######## }}}
+### ASDF
+export ASDF_DATA_DIR="$HOME/.local/share/asdf"
+export ASDF_CONFIG_FILE="$ASDF_DATA_DIR/.asdfrc"
 
 # program opts
 # compressors
