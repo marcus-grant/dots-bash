@@ -1,6 +1,9 @@
 # Don't track bash-it here
 bash-it
 
+# Same for basher
+basher
+
 # Ignore the local bash config file
 local-bash.sh
 
