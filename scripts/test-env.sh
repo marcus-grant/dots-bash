@@ -28,16 +28,11 @@ then
     exit 1
 fi
 
-# DELETEME: If this workflow works well enough no need to make
-# build command idempotent by checking for preexisting image
-# Check if the Dockerfile has been used to build an image on this machine
-# if [[ "$(docker images -q $TEST_IMAGE 2> /dev/null)" == "" ]]; then
-#     echo
-#     echo "$TEST_IMAGE doesn't exist, building it..."
-#     echo
+echo
+echo "$TEST_IMAGE doesn't exist, building it..."
+echo
 
-    docker build --rm -f "$SCRIPT_DIR/Dockerfile" -t $TEST_IMAGE "."
-# fi
+docker build --rm -f "$SCRIPT_DIR/Dockerfile" -t $TEST_IMAGE "."
 
 # Check if container already exists
 # Taken from https://stackoverflow.com/a/38576401
