@@ -1,5 +1,5 @@
-# Ignore the prompt link, ansible handles it
-prompts/prompt-link
+# Don't track bash-it here
+bash-it
 
 # Ignore the local bash config file
 local-bash.sh
