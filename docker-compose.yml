@@ -1,0 +1,7 @@
+version: '2'
+services:
+    bash-test:
+        image: bash-env
+        volumes:
+            - "~/.dots/bash:/root/.dots/bash:rw"
+        
