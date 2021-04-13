@@ -16,3 +16,20 @@ if [ ! -d $BASH_IT ]; then
     echo
     git clone --depth=1 https://github.com/Bash-it/bash-it.git $BASH_IT
 fi
+
+# Setup Basher if it doesn't already exist
+# BASHER_ROOT is where basher will look for all its lookups
+# BASHER_PREFIX is where it will install all packages
+export BASHER_ROOT="$DOTS_DIR_BASH/basher"
+export BASHER_PREFIX="$BASHER_ROOT/cellar"
+if [ ! -d $BASHER_ROOT ]; then
+    echo
+    echo "Basher not installed, installing now..."
+    echo
+    git clone --depth=1 https://github.com/basherpm/basher.git $BASHER_ROOT
+fi
+
+# Should this be in profile? https://unix.stackexchange.com/a/26059
+export PATH="$PATH:$BASHER_ROOT/bin"
+eval "$(basher init - bash)" # replace `bash` with `zsh` if you use zsh
+

@@ -13,6 +13,10 @@ esac
 if [ -z $BASH_IT ]; then
   source ~/.bash_profile
 fi
+# Same for BASHER
+if [ -z $BASHER_ROOT ]; then
+  source ~/.bash_profile
+fi
 
 # Lock and Load a custom theme file.
 # Leave empty to disable theming.
