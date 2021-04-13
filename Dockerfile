@@ -13,5 +13,6 @@ RUN mkdir /root/.dots/bash
 RUN rm /root/.bashrc
 RUN ln -sf /root/.dots/bash/bashrc.bash /root/.bashrc
 RUN ln -sf /root/.dots/bash/bashprofile.bash /root/.bash_profile
+RUN git clone --depth=1 https://github.com/Bash-it/bash-it.git
 
 WORKDIR /root
