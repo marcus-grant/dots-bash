@@ -11,5 +11,8 @@ DOTS_DIR="$(dirname "$DOTS_DIR_BASH")"
 # Set BASH_IT directory and clone it if it doesn't exist already
 export BASH_IT="$DOTS_DIR_BASH/bash-it"
 if [ ! -d $BASH_IT ]; then
+    echo
+    echo "Bash-It not installed, installing now..."
+    echo
     git clone --depth=1 https://github.com/Bash-it/bash-it.git $BASH_IT
 fi
