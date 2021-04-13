@@ -49,7 +49,7 @@ fi
 echo
 echo "Attaching to BASH testing container..."
 echo
-docker run -it --name $TEST_CONTAINER -v $TEST_VOLUME $TEST_IMAGE '/bin/bash'
+docker run -it --name $TEST_CONTAINER -v $TEST_VOLUME --cpus="0.1" $TEST_IMAGE '/bin/bash'
 
 echo
 echo "Cleaning up container..."
