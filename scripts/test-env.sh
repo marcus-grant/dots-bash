@@ -28,6 +28,8 @@ then
     exit 1
 fi
 
+# DELETEME: If this workflow works well enough no need to make
+# build command idempotent by checking for preexisting image
 # Check if the Dockerfile has been used to build an image on this machine
 # if [[ "$(docker images -q $TEST_IMAGE 2> /dev/null)" == "" ]]; then
 #     echo
