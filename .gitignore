@@ -6,3 +6,6 @@ local-bash.sh
 
 # Ignore local bashes
 local_*
+
+# Ignore vim swaps
+*.swp
