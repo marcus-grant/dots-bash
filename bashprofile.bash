@@ -8,8 +8,11 @@ done
 DOTS_DIR_BASH="$( cd -P "$( dirname "$_DOTSDIRSRC" )" >/dev/null 2>&1 && pwd )"
 DOTS_DIR="$(dirname "$DOTS_DIR_BASH")"
 
+# Load custom local-only overrides early in case there's stuff here to override
+if [ -f $DOTS_DIR_BASH/bashlocal.bash ]; then source $DOTS_DIR_BASH/bashlocal.bash; fi
+
 # Set BASH_IT directory and clone it if it doesn't exist already
-export BASH_IT="$DOTS_DIR_BASH/bash-it"
+if [ -z $BASH_IT ]; then export BASH_IT="$DOTS_DIR_BASH/bash-it"; fi
 if [ ! -d $BASH_IT ]; then
     echo
     echo "Bash-It not installed, installing now..."
@@ -20,8 +23,8 @@ fi
 # Setup Basher if it doesn't already exist
 # BASHER_ROOT is where basher will look for all its lookups
 # BASHER_PREFIX is where it will install all packages
-export BASHER_ROOT="$DOTS_DIR_BASH/basher"
-export BASHER_PREFIX="$BASHER_ROOT/cellar"
+if [ -z $BASHER_ROOT ]; then export BASHER_ROOT="$DOTS_DIR_BASH/basher"; fi
+if [ -z $BASHER_PREFIX ]; then export BASHER_PREFIX="$BASHER_ROOT/cellar"; fi
 if [ ! -d $BASHER_ROOT ]; then
     echo
     echo "Basher not installed, installing now..."
