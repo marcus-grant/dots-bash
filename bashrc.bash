@@ -6,22 +6,25 @@ case $- in
     *) return;;
 esac
 
+# First check if the crucial vars DOTS_DIR & DOTS_DIR_BASH were loaded
+# In some cases, especially testing w/ Docker .bash_profile isn't called
+if [ -z $DOTS_DIR ]; then source ~/.bash_profile; fi
+
+# Load a git-ignored bashlocal.bash config file to override key variables on local installs only
+if [ -f $DOTS_DIR_BASH/bashlocal.bash ]; then source $DOTS_DIR_BASH/bashlocal.bash; fi
+
 # Path to the bash it configuration (stock config)
 # export BASH_IT="/$HOME/bash-it"
 # In some cases (like with docker run) bash_profile isn't called first
 # Make sure it is by checking if BASH_IT is defined, if not run bash_profile
-if [ -z $BASH_IT ]; then
-  source ~/.bash_profile
-fi
+if [ -z $BASH_IT ]; then source ~/.bash_profile; fi
 # Same for BASHER
-if [ -z $BASHER_ROOT ]; then
-  source ~/.bash_profile
-fi
+if [ -z $BASHER_ROOT ]; then source ~/.bash_profile; fi
 
 # Lock and Load a custom theme file.
 # Leave empty to disable theming.
 # location /.bash_it/themes/
-export BASH_IT_THEME='modern'
+if [ -z $BASH_IT_THEME ]; then export BASH_IT_THEME='modern'; fi
 
 # (Advanced): Change this to the name of your remote repo if you
 # cloned bash-it with a remote other than origin such as `bash-it`.

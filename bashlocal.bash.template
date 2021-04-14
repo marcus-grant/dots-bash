@@ -1,0 +1,13 @@
+# Set these variables here to override variables
+
+# Set this to false to prevent git status checks in the prompt
+# This can significantly increase responsiveness of the prompt on slow systems
+#export SCM_CHECK=false
+
+# Change the location to look for bash-it
+#export BASH_IT="$HOME/.local/bin/bash-it"
+
+# Change the location to look for basher
+#export BASHER_ROOT="$HOME/.local/bin/basher"
+# Which means you may also want to change its prefix location
+#export BASHER_PREFIX="/opt"
