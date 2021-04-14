@@ -12,16 +12,40 @@ This repository has a `Dockerfile` that builds a basic Debian contaienr to test 
 
 When the `test-env.sh` script is run you end up in the Root user's home, the linked `.bashrc` will look exactly like `bashrc.bash` here and `/root/.dots/bash` will look exactly like this repository and all changes on the developer machine running this container will be reflected there as well.
 
-### Install (Bash-It)
+### How to Use These Dotfiles
 
-If trying this from a fresh `bashrc` run the container using `scripts/test-env.sh` and run these commands.
+Clone this repository into whatever directory is used to store dotfiles.
 
 ```sh
-git clone --depth=1 https://github.com/Bash-it/bash-it.git
-./bash-it/install.sh --silent
+mkdir ~/.dots # Where I store my dotfiles
+git clone https://github.com/marcus-grant/dots-bash ~/.dots/bash
 ```
 
-This is what the `bash_profile` will do if it can't detect `BASH_IT` pointing to a directory, *ie the one bash-it normally expects*.
+Then just link the `bashrc` & `bash_profile` files to this repository's `bashrc.bash` & `bashprofile.bash` files respectively. *Optionally* you may also want to backup your old config files before doing this.
+
+```sh
+mv ~/.bashrc ~/.bashrc.bak
+mv ~/.bash_profile ~/.bash_profile.bak
+ln -sf ~/.dots/bash/bashrc.bash ~/.bashrc
+ln -sf ~/.dots/bash/bashprofile.bash ~/.bash_profile
+```
+
+### Install (Bash-It)
+
+This should be done automatically by `.bash_profile`. However, if trying this from a fresh `bashrc` run the container using `scripts/test-env.sh` and run these commands.
+
+```sh
+git clone --depth=1 https://github.com/Bash-it/bash-it.git $DOTS_DIR_BASH/bash-it
+```
+
+This is what the `bash_profile` will do if it can't detect `BASH_IT` pointing to a directory, *ie the one bash-it normally expects*. `DOTS_DIR_BASH` is an environment variable that is exported early in `bashprofile` and it's the location of the dotfiles directory where
+
+
+### Basher
+
+This configuration uses [basher][basher] to manage common BASH scripts and helper programs, many of which with plugins that bash-it enhances. The `bash_profile` will check if the folder containing the basher files pointed to by `BASHER_ROOT` is empty. If it is, it will set `BASHER_ROOT` to `$DOTS_DIR/basher`. Then it will clone the files to it. `BASHER_PREFIX` can be used to set a global location like `/opt` or `/usr/local` and basher will install binaries to `$BASHER_PREFIX/bin` and program files to `$BASHER_PREFIX/packages`.
 
 ## Links
+
 [bash-it]: https://github.com/Bash-it/bash-it
+[basher]: https://github.com/basherpm/basher
