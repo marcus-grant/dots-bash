@@ -4,8 +4,8 @@ bash-it
 # Same for basher
 basher
 
-# Ignore the local bash config file
-local-bash.sh
+# Ignore the local bash config file so local installs can customize bash
+bashlocal.bash
 
 # Ignore local bashes
 local_*
