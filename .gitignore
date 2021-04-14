@@ -4,6 +4,9 @@ bash-it
 # Same for basher
 basher
 
+# Same for gitstatus
+gitstatus
+
 # Ignore the local bash config file so local installs can customize bash
 bashlocal.bash
 
