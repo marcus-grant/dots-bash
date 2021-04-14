@@ -6,6 +6,7 @@ RUN apt-get update && apt install -y \
     bash \
     less \
     git \
+    curl \
     tree
 
 RUN mkdir /root/.dots

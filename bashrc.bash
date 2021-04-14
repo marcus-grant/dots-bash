@@ -38,14 +38,18 @@ export BASH_IT_THEME='modern'
 unset MAILCHECK
 
 # Change this to your console based IRC client of choice.
-export IRC_CLIENT='irssi'
+export IRC_CLIENT='weechat'
 
 # Set this to false to turn off version control status checking within the prompt for all themes
-export SCM_CHECK=true
+if [ -z $SCM_CHECK ]; then export SCM_CHECK=true; fi
 # Set to actual location of gitstatus directory if installed
-#export SCM_GIT_GITSTATUS_DIR="$HOME/gitstatus"
-# per default gitstatus uses 2 times as many threads as CPU cores, you can change this here if you must
+export SCM_GIT_GITSTATUS_DIR="$DOTS_DIR_BASH/gitstatus"
+# Per default gitstatus uses 2 times as many threads as CPU cores, you can change this here if you must
 #export GITSTATUS_NUM_THREADS=8
+# Check if gitstatus is installed, clone it if not
+if [ ! -d $SCM_GIT_GITSTATUS_DIR -a "$SCM_CHECK" == "true" ]; then
+  git clone --depth=1 https://github.com/romkatv/gitstatus.git $SCM_GIT_GITSTATUS_DIR
+fi
 
 # Set Xterm/screen/Tmux title with only a short hostname.
 # Uncomment this (or set SHORT_HOSTNAME to something else),
