@@ -87,6 +87,11 @@ These are the generic system aliases with no dependencies. It will also attempt 
 | grep | grep --color=auto | Default to automatic grep coloring, gets checked against host ability for color |
 | grepc | grep --color=always | Force grep to use colors, programs need to know it's colored  so it's its own alias |
 | grepl | grep $@ \| less | Uses a condition to check for color and pipes grep to less |
+| q | exit | Shorthand for exiting the current shell |
+| py | python3 or python | Shorthand for python3 if it exists otherwise python |
+| ipy | ipython3 or python | Same as `py` but referencing ipython3 or ipython |
+| pip | pip3 | Overrides `pip3` if it exists, otherwise it does nothing |
+| rb | ruby | Shorthand for ruby |
 
 ## Links
 

@@ -44,3 +44,18 @@ grepl() {
     grep $@ | less;
   fi
 }
+
+alias q="exit"
+
+# Language short-hands
+# Since python is near the transition of making 'python' alias to 'python3'
+# check for the existence of python3 & python and alias to 'py'
+if command -v python3 &> /dev/null; then
+  alias py="python3"
+  alias ipy="ipython3"
+  alias pip="pip3"
+elif command -v python &> /dev/null; then
+  alias py="python"
+  alias ipy="ipython"
+fi
+alias rb='ruby'
