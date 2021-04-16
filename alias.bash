@@ -51,6 +51,12 @@ grepl() {
 }
 
 alias q="exit"
+alias h="history"
+
+# Tree without needing tree
+if [ ! -x "$(which tree 2>/dev/null)" ]; then
+  alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
+fi
 
 # Language short-hands
 # Since python is near the transition of making 'python' alias to 'python3'

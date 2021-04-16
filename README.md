@@ -80,6 +80,8 @@ These are the generic system aliases with no dependencies. It will also attempt 
 | lz | ll -S | Same as `ll` but sorted by si`z`e, largest first |
 | lzr | lz -r | Same as `lz` but reverse order, smallest first |
 | _ | sudo | A **really** short way to type `sudo` |
+| q | exit | Shorthand for exiting the current shell |
+| h | history | Shorthand for `history` command |
 | edit | $EDITOR | Edits with the default editor defined in `EDITOR` environment variable|
 | ebrc | edit ~/.bashrc | Edit the bash config with default `EDITOR` |
 | ebpf | $edit ~/.bash_profile | Edit the bash profile with default `EDITOR` |
@@ -87,7 +89,6 @@ These are the generic system aliases with no dependencies. It will also attempt 
 | grep | grep --color=auto | Default to automatic grep coloring, gets checked against host ability for color |
 | grepc | grep --color=always | Force grep to use colors, programs need to know it's colored  so it's its own alias |
 | grepl | grep $@ \| less | Uses a condition to check for color and pipes grep to less |
-| q | exit | Shorthand for exiting the current shell |
 | py | python3 or python | Shorthand for python3 if it exists otherwise python |
 | ipy | ipython3 or python | Same as `py` but referencing ipython3 or ipython |
 | pip | pip3 | Overrides `pip3` if it exists, otherwise it does nothing |
@@ -95,6 +96,8 @@ These are the generic system aliases with no dependencies. It will also attempt 
 | .. | cd .. | Shorthand for `cd ..` in a shorter form |
 | ... | ..; .. | Same as `..` but goes up two levels of parent directories |
 | .... | ...; .. | Same as `...` but goes up three levels of parent directories |
+| tree | tree | If `tree` isn't installed, uses `find` & `sed` to do the same thing |
+
 
 ## Links
 

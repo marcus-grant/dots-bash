@@ -8,8 +8,7 @@ RUN apt-get update && apt install -y \
     git \
     curl \
     nano \
-    vim \
-    tree
+    vim 
 
 RUN export EDITOR=nano
 RUN mkdir /root/.dots
