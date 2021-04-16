@@ -97,6 +97,8 @@ These are the generic system aliases with no dependencies. It will also attempt 
 | ... | ..; .. | Same as `..` but goes up two levels of parent directories |
 | .... | ...; .. | Same as `...` but goes up three levels of parent directories |
 | tree | tree | If `tree` isn't installed, uses `find` & `sed` to do the same thing |
+| md | mkdir -p | A quick way to type out a tree of directories to add in one cmd |
+| rd | rmdir | A quick way to delete directories |
 
 
 ## Links

@@ -50,13 +50,29 @@ grepl() {
   fi
 }
 
+
 alias q="exit"
 alias h="history"
+
+# Directories
+alias md='mkdir -p'
+alias rd='rmdir'
 
 # Tree without needing tree
 if [ ! -x "$(which tree 2>/dev/null)" ]; then
   alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 fi
+
+# Display whatever file is regular file or folder
+catt() {
+  for i in "$@"; do
+    if [ -d "$i" ]; then
+      ls "$i"
+    else
+      cat "$i"
+    fi
+  done
+}
 
 # Language short-hands
 # Since python is near the transition of making 'python' alias to 'python3'
