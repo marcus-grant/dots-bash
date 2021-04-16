@@ -92,3 +92,4 @@ source "$BASH_IT"/bash_it.sh
 # MARCUS GRANT's PERSONAL v3 additions to bash dotfiles
 # Should go after Bash It invocation to make sure they override them
 source "$DOTS_DIR_BASH"/alias.bash
+

@@ -36,3 +36,6 @@ fi
 export PATH="$PATH:$BASHER_ROOT/bin"
 eval "$(basher init - bash)" # replace `bash` with `zsh` if you use zsh
 
+# Some defaults
+export EDITOR="vim"
+

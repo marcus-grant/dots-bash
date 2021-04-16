@@ -23,8 +23,9 @@ alias lzr='lz -r' # lz but reverse order, smallest first
 alias _='sudo'
 
 # Edit bash files with shortcut and quickly reload them
-alias ebrc="$EDITOR ~/.bashrc"
-alias ebpf="$EDITOR ~/.bash_profile"
+alias edit="$EDITOR"
+alias ebrc="edit ~/.bashrc"
+alias ebpf="edit ~/.bash_profile"
 alias rbrc="source ~/.bash_profile; source ~/.bashrc"
 
 # Colored grep

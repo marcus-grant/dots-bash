@@ -8,6 +8,7 @@ RUN apt-get update && apt install -y \
     git \
     curl \
     nano \
+    vim \
     tree
 
 RUN export EDITOR=nano
