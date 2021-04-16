@@ -4,6 +4,7 @@ LABEL maintainer=marcusfg@gmail.com
 
 RUN apt-get update && apt install -y \
     bash \
+    sudo \
     less \
     git \
     curl \

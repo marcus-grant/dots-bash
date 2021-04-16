@@ -74,6 +74,17 @@ catt() {
   done
 }
 
+# Sudo editors
+alias sedit="sudo $EDITOR"
+alias svim="sudo vim"
+alias snvim="sudo nvim"
+alias snano="sudo nano"
+alias semacs="sudo emacs"
+
+# Shortcut to extract & archive helper script
+alias xt="extract"
+alias ar="archive"
+
 # Language short-hands
 # Since python is near the transition of making 'python' alias to 'python3'
 # check for the existence of python3 & python and alias to 'py'

@@ -99,6 +99,14 @@ These are the generic system aliases with no dependencies. It will also attempt 
 | tree | tree | If `tree` isn't installed, uses `find` & `sed` to do the same thing |
 | md | mkdir -p | A quick way to type out a tree of directories to add in one cmd |
 | rd | rmdir | A quick way to delete directories |
+| catt | ls or cat | Either views item with `ls` if directory, or `cat` if file |
+| sedit | sudo $EDITOR | Use default `EDITOR` with sudo priveleges |
+| svim | sudo vim | Use vim with sudo |
+| snvim | sudo nvim | Use nvim with sudo |
+| snano | sudo nano | Use nano with sudo |
+| semacs | sudo emacs | Use emacs with sudo |
+| xt | extract | Shorthand for the `extract` decompression helper script |
+| ar | archive | Shorthand for the `archive` compression helper script |
 
 
 ## Links
