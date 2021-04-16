@@ -31,4 +31,16 @@ alias rbrc="source ~/.bash_profile; source ~/.bashrc"
 # Colored grep
 # Needs to check on a known existing file for a pattern that
 # is known to ensure OS supports the color option
-# if grep --color=auto "a" "${DOTS_DIR_BASH}/"*.md
+export _GREP_HAS_COLOR=false
+if grep --color=auto "a" "${DOTS_DIR_BASH}/"*.md &> /dev/null; then
+  alias grep='grep --color=auto'
+  alias grepc='grep --color=always'
+  export _GREP_HAS_COLOR=true
+fi
+grepl() {
+  if [ $_GREP_HAS_COLOR = true ]; then
+    grepc $@ | less -R;
+  else
+    grep $@ | less;
+  fi
+}

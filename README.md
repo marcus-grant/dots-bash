@@ -84,6 +84,9 @@ These are the generic system aliases with no dependencies. It will also attempt 
 | ebrc | edit ~/.bashrc | Edit the bash config with default `EDITOR` |
 | ebpf | $edit ~/.bash_profile | Edit the bash profile with default `EDITOR` |
 | rbrc | source ~/.basrc; | Reload bash configs, useful for editing configurations |
+| grep | grep --color=auto | Default to automatic grep coloring, gets checked against host ability for color |
+| grepc | grep --color=always | Force grep to use colors, programs need to know it's colored  so it's its own alias |
+| grepl | grep $@ \| less | Uses a condition to check for color and pipes grep to less |
 
 ## Links
 
