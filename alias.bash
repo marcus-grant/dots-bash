@@ -19,6 +19,11 @@ alias ltr='lt -r' # lt but reverse order, oldest first
 alias lz='ll -S' # ll but sorted by size, largest first
 alias lzr='lz -r' # lz but reverse order, smallest first
 
+# CD shorthands
+alias ..='cd ..'
+alias ...='..; ..'
+alias ....='...; ..'
+
 # Short sudo
 alias _='sudo'
 

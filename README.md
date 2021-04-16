@@ -92,6 +92,9 @@ These are the generic system aliases with no dependencies. It will also attempt 
 | ipy | ipython3 or python | Same as `py` but referencing ipython3 or ipython |
 | pip | pip3 | Overrides `pip3` if it exists, otherwise it does nothing |
 | rb | ruby | Shorthand for ruby |
+| .. | cd .. | Shorthand for `cd ..` in a shorter form |
+| ... | ..; .. | Same as `..` but goes up two levels of parent directories |
+| .... | ...; .. | Same as `...` but goes up three levels of parent directories |
 
 ## Links
 
