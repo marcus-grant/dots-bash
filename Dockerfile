@@ -7,8 +7,10 @@ RUN apt-get update && apt install -y \
     less \
     git \
     curl \
+    nano \
     tree
 
+RUN export EDITOR=nano
 RUN mkdir /root/.dots
 RUN mkdir /root/.dots/bash
 RUN rm /root/.bashrc

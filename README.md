@@ -79,10 +79,10 @@ These are the generic system aliases with no dependencies. It will also attempt 
 | ltr | lt -r | Same as `lt` but reverse order, oldest first |
 | lz | ll -S | Same as `ll` but sorted by si`z`e, largest first |
 | lzr | lz -r | Same as `lz` but reverse order, smallest first |
-
-
-
-
+| _ | sudo | A **really** short way to type `sudo` |
+| ebrc | $EDITOR ~/.bashrc | Edit the bash config with default `EDITOR` |
+| ebpf | $EDITOR ~/.bash_profile | Edit the bash profile with default `EDITOR` |
+| rbrc | source ~/.basrc; | Reload bash configs, useful for editing configurations |
 
 ## Links
 

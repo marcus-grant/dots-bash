@@ -19,15 +19,15 @@ alias ltr='lt -r' # lt but reverse order, oldest first
 alias lz='ll -S' # ll but sorted by size, largest first
 alias lzr='lz -r' # lz but reverse order, smallest first
 
-# # Short sudo
-# alias _='sudo'
+# Short sudo
+alias _='sudo'
 
-# # Edit bash files with shortcut and quickly reload them
-# alias ebrc="$EDITOR ~/.bashrc"
-# alias ebpf="$EDITOR ~/.bash_profile"
-# alias rbrc="source ~/.bash_profile; source ~/.bashrc"
+# Edit bash files with shortcut and quickly reload them
+alias ebrc="$EDITOR ~/.bashrc"
+alias ebpf="$EDITOR ~/.bash_profile"
+alias rbrc="source ~/.bash_profile; source ~/.bashrc"
 
-# # Colored grep
-# # Needs to check on a known existing file for a pattern that
-# # is known to ensure OS supports the color option
+# Colored grep
+# Needs to check on a known existing file for a pattern that
+# is known to ensure OS supports the color option
 # if grep --color=auto "a" "${DOTS_DIR_BASH}/"*.md
