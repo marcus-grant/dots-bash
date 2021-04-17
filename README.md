@@ -79,6 +79,13 @@ These are the generic system aliases with no dependencies. It will also attempt 
 | ltr | lt -r | Same as `lt` but reverse order, oldest first |
 | lz | ll -S | Same as `ll` but sorted by si`z`e, largest first |
 | lzr | lz -r | Same as `lz` but reverse order, smallest first |
+| catt | ls or cat | Either views item with `ls` if directory, or `cat` if file |
+| .. | cd .. | Shorthand for `cd ..` in a shorter form |
+| ... | ..; .. | Same as `..` but goes up two levels of parent directories |
+| .... | ...; .. | Same as `...` but goes up three levels of parent directories |
+| tree | tree | If `tree` isn't installed, uses `find` & `sed` to do the same thing |
+| md | mkdir -p | A quick way to type out a tree of directories to add in one cmd |
+| rd | rmdir | A quick way to delete directories |
 | _ | sudo | A **really** short way to type `sudo` |
 | q | exit | Shorthand for exiting the current shell |
 | h | history | Shorthand for `history` command |
@@ -86,6 +93,11 @@ These are the generic system aliases with no dependencies. It will also attempt 
 | ebrc | edit ~/.bashrc | Edit the bash config with default `EDITOR` |
 | ebpf | $edit ~/.bash_profile | Edit the bash profile with default `EDITOR` |
 | rbrc | source ~/.basrc; | Reload bash configs, useful for editing configurations |
+| sedit | sudo $EDITOR | Use default `EDITOR` with sudo priveleges |
+| svim | sudo vim | Use vim with sudo |
+| snvim | sudo nvim | Use nvim with sudo |
+| snano | sudo nano | Use nano with sudo |
+| semacs | sudo emacs | Use emacs with sudo |
 | grep | grep --color=auto | Default to automatic grep coloring, gets checked against host ability for color |
 | grepc | grep --color=always | Force grep to use colors, programs need to know it's colored  so it's its own alias |
 | grepl | grep $@ \| less | Uses a condition to check for color and pipes grep to less |
@@ -93,18 +105,6 @@ These are the generic system aliases with no dependencies. It will also attempt 
 | ipy | ipython3 or python | Same as `py` but referencing ipython3 or ipython |
 | pip | pip3 | Overrides `pip3` if it exists, otherwise it does nothing |
 | rb | ruby | Shorthand for ruby |
-| .. | cd .. | Shorthand for `cd ..` in a shorter form |
-| ... | ..; .. | Same as `..` but goes up two levels of parent directories |
-| .... | ...; .. | Same as `...` but goes up three levels of parent directories |
-| tree | tree | If `tree` isn't installed, uses `find` & `sed` to do the same thing |
-| md | mkdir -p | A quick way to type out a tree of directories to add in one cmd |
-| rd | rmdir | A quick way to delete directories |
-| catt | ls or cat | Either views item with `ls` if directory, or `cat` if file |
-| sedit | sudo $EDITOR | Use default `EDITOR` with sudo priveleges |
-| svim | sudo vim | Use vim with sudo |
-| snvim | sudo nvim | Use nvim with sudo |
-| snano | sudo nano | Use nano with sudo |
-| semacs | sudo emacs | Use emacs with sudo |
 | xt | extract | Shorthand for the `extract` decompression helper script |
 | ar | archive | Shorthand for the `archive` compression helper script |
 
