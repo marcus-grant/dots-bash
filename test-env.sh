@@ -14,7 +14,6 @@ while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symli
   [[ $SOURCE != /* ]] && SOURCE="$SCRIPT_DIR/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
 done
 SCRIPT_DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
-SCRIPT_DIR="$(dirname "$SCRIPT_DIR")"
 
 TEST_VOLUME="$SCRIPT_DIR:/root/.dots/bash:rw"
 
@@ -29,7 +28,7 @@ then
 fi
 
 echo
-echo "$TEST_IMAGE doesn't exist, building it..."
+echo "Building $TEST_IMAGE docker container..."
 echo
 
 docker build --rm -f "$SCRIPT_DIR/Dockerfile" -t $TEST_IMAGE "."
@@ -41,8 +40,6 @@ if [ ! "$(docker ps -q -f name=$TEST_CONTAINER)" ]; then
         # Clean up the container if it exists but is exited
         docker rm $TEST_CONTAINER
     fi
-    # Run the container
-    # docker run -d --name $TEST_CONTAINER -v $TEST_VOLUME $TEST_IMAGE
 fi
 
 # Now enter the container in this shell interactively
