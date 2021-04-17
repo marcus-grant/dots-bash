@@ -24,7 +24,7 @@ if [ -z $BASHER_ROOT ]; then source ~/.bash_profile; fi
 # Lock and Load a custom theme file.
 # Leave empty to disable theming.
 # location /.bash_it/themes/
-if [ -z $BASH_IT_THEME ]; then export BASH_IT_THEME='modern'; fi
+# if [ -z $BASH_IT_THEME ]; then export BASH_IT_THEME='modern'; fi
 
 # (Advanced): Change this to the name of your remote repo if you
 # cloned bash-it with a remote other than origin such as `bash-it`.
@@ -44,15 +44,15 @@ unset MAILCHECK
 export IRC_CLIENT='weechat'
 
 # Set this to false to turn off version control status checking within the prompt for all themes
-if [ -z $SCM_CHECK ]; then export SCM_CHECK=true; fi
+if [ -z $SCM_CHECK ]; then export SCM_CHECK=false; fi
 # Set to actual location of gitstatus directory if installed
-export SCM_GIT_GITSTATUS_DIR="$DOTS_DIR_BASH/gitstatus"
+# export SCM_GIT_GITSTATUS_DIR="$DOTS_DIR_BASH/gitstatus"
 # Per default gitstatus uses 2 times as many threads as CPU cores, you can change this here if you must
 #export GITSTATUS_NUM_THREADS=8
 # Check if gitstatus is installed, clone it if not
-if [ ! -d $SCM_GIT_GITSTATUS_DIR -a "$SCM_CHECK" == "true" ]; then
-  git clone --depth=1 https://github.com/romkatv/gitstatus.git $SCM_GIT_GITSTATUS_DIR
-fi
+# if [ ! -d $SCM_GIT_GITSTATUS_DIR -a "$SCM_CHECK" == "true" ]; then
+#   git clone --depth=1 https://github.com/romkatv/gitstatus.git $SCM_GIT_GITSTATUS_DIR
+# fi
 
 # Set Xterm/screen/Tmux title with only a short hostname.
 # Uncomment this (or set SHORT_HOSTNAME to something else),
@@ -91,5 +91,9 @@ source "$BASH_IT"/bash_it.sh
 
 # MARCUS GRANT's PERSONAL v3 additions to bash dotfiles
 # Should go after Bash It invocation to make sure they override them
+
+# General Aliases
 source "$DOTS_DIR_BASH"/alias.bash
+# Prompt choose one from ./prompts directory
+source "$DOTS_DIR_BASH"/prompts/starship-prompt.bash
 

@@ -1,0 +1,62 @@
+# My first bash starship configuration
+
+# No newlines @ start of prompt
+add_newline = false
+
+# The prompt-wide format curved arrow with topline shwowing most info in boxes
+format = """
+[┌─](bold white)$username$hostname$directory
+[└──](bold white)$character"""
+
+[character]
+success_symbol = "[❯](bold green)" 
+error_symbol = "[X](bold red)"
+vicmd_symbol = "[❮](bold blue)"  
+
+[username]
+disabled = false
+show_always = true
+format = "[─\\[](bold white)[$user]($style)[@](bold white)"
+style_user = "white"
+style_root = "bold red"
+
+[hostname]
+format = "-\\[[$hostname]($style)\\]"
+style = "bold purple"
+# ssh_only = true
+ssh_only = false
+trim_at = "." # could also include domain like .example.com
+disabled = false
+
+[directory]
+truncation_length = 4
+format = "─\\[[$path]($style)[$read_only]($read_only_style)\\]"
+style = "bold green"
+read_only = ":ro"
+read_only_style = "red"
+
+### Disabled modules
+[package]
+disabled = true
+
+[battery]
+disabled = true
+
+[docker_context]
+disabled = true
+
+[env_var]
+disabled = true
+
+[git_commit]
+disabled = true
+commit_hash_length = 4
+
+[git_status]
+disabled = true
+
+[kubernetes]
+disabled = true
+
+[memory_usage]
+disabled = true

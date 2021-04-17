@@ -1,0 +1,1 @@
+# A bash only & stripped down prompt for slow systems
