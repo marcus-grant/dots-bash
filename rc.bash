@@ -97,3 +97,6 @@ source "$DOTS_DIR_BASH"/alias.bash
 # Prompt choose one from ./prompts directory
 source "$DOTS_DIR_BASH"/prompts/starship-prompt.bash
 
+# Plugins
+source "$DOTS_DIR_BASH/plugins/systemd.bash"
+

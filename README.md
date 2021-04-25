@@ -108,6 +108,26 @@ These are the generic system aliases with no dependencies. It will also attempt 
 | xt | extract | Shorthand for the `extract` decompression helper script |
 | ar | archive | Shorthand for the `archive` compression helper script |
 
+### SystemD Aliases
+
+Some basic aliases for SystemD's `systemctl` command, because typing them out can be irritating especially since you rarely need to use just one. All of them are prefixed with `sc`.
+
+| Alias | Command          | Description                                                          |
+| ----- | ---------------- | -------------------------------------------------------------------- |
+| sc    | systemctl        | Shorthand for a lone systemctl command                               |
+| scu   | sc --user        | Shorthand for systemctl with **--user** flag                         |
+| scdr  | sc daemon-reload | Calls systemctl with **daemon-reload** sub-command                   |
+| scdru | scr --user       | Calls systemctl with **daemon-reload** sub-command & **--user** flag |
+| scr   | sc restart       | Calls systemctl with **restart** sub-command to restart a service    |
+| scru  | scu restart      | Calls systemctl with **restart** sub-command & **--user** flag       |
+| sct   | sc stop          | Calls systemctl with **stop** sub-command to stop a service          |
+| sctu  | scu stop         | Calls systemctl with **stop** sub-command & **--user** flag          |
+| scs   | sc start         | Calls systemctl with **start** sub-command to start a service        |
+| scsu  | scu start        | Calls systemctl with **start** sub-command & **--user**              |
+| scus  | scsu             | Misspelling alias for **scsu**                                       |
+| scur  | scdru            | Misspelling alias for **scdru**                                      |
+| scut  | sctu             | Misspelling alias for **sctu**                                       |
+
 
 ## Links
 
