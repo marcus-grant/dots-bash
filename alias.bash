@@ -85,6 +85,13 @@ alias semacs="sudo emacs"
 alias xt="extract"
 alias ar="archive"
 
+# TMUX
+alias tm='tmux attach -t main || tmux new -s main'
+alias tma='tmux attach -t'
+alias tmn='tmux new -s'
+alias tml='tmux list-sessions'
+alias tmk='tmux kill-session -t'
+
 # Language short-hands
 # Since python is near the transition of making 'python' alias to 'python3'
 # check for the existence of python3 & python and alias to 'py'
