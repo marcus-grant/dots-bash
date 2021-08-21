@@ -99,4 +99,5 @@ source "$DOTS_DIR_BASH"/prompts/starship-prompt.bash
 
 # Plugins
 source "$DOTS_DIR_BASH/plugins/systemd.bash"
+source "$DOTS_DIR_BASH/plugins/fzf.bash"
 
