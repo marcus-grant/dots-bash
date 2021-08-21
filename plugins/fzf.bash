@@ -2,7 +2,13 @@
 
 # TODO make this more flexible to work with find/ag/etc. if no fd/rg is installed
 
-export FZF_DEFAULT_COMMAND="fd . --hidden --exclude .git"
+if command -v fdfind &> /dev/null; then
+    echo "fdfind command found"
+    export FZF_DEFAULT_COMMAND="fdfind . --hidden --exclude .git"
+elif command -v fd &> /dev/null; then
+    echo "fd command found"
+    export FZF_DEFAULT_COMMAND="fd . --hidden --exclude .git"
+fi
 
 fcd () {
     __dir="$(pwd)"
