@@ -58,6 +58,11 @@ alias h="history"
 alias md='mkdir -p'
 alias rd='rmdir'
 
+# Rename fdfind if it exists
+if command -v fdfind > /dev/null; then
+    alias fd='fdfind'
+fi
+
 # Tree without needing tree
 if [ ! -x "$(which tree 2>/dev/null)" ]; then
   alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
