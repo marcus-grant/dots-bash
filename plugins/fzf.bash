@@ -4,9 +4,9 @@
 
 # TODO remove debug echo's when this works on ubuntu/debian + vim
 if command -v fdfind &> /dev/null; then
-    export FZF_DEFAULT_COMMAND="/usr/bin/fdfind . --hidden --exclude .git"
+    export FZF_DEFAULT_COMMAND="/usr/bin/fdfind . --type file --hidden --exclude .git"
 elif command -v fd &> /dev/null; then
-    export FZF_DEFAULT_COMMAND="fd . --hidden --exclude .git"
+    export FZF_DEFAULT_COMMAND="fd . --type file --hidden --exclude .git"
 fi
 
 fcd () {
