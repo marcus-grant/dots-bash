@@ -105,4 +105,9 @@ source "$DOTS_DIR_BASH/plugins/systemd.bash"
 source "$DOTS_DIR_BASH/plugins/fzf.bash"
 
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+# TODO not sure if this is the best way to handle this
+# * [x] Works w/o on Pop_OS
+# * [ ] Works w/o on Debian
+# * [ ] Works w/o on Fedora
+# * [ ] Works w/o on MacOS
+# [ -f ~/.fzf.bash ] && source ~/.fzf.bash

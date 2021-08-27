@@ -2,11 +2,10 @@
 
 # TODO make this more flexible to work with find/ag/etc. if no fd/rg is installed
 
+# TODO remove debug echo's when this works on ubuntu/debian + vim
 if command -v fdfind &> /dev/null; then
-    echo "fdfind command found"
-    export FZF_DEFAULT_COMMAND="fdfind . --hidden --exclude .git"
+    export FZF_DEFAULT_COMMAND="/usr/bin/fdfind . --hidden --exclude .git"
 elif command -v fd &> /dev/null; then
-    echo "fd command found"
     export FZF_DEFAULT_COMMAND="fd . --hidden --exclude .git"
 fi
 

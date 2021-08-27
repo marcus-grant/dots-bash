@@ -60,7 +60,7 @@ alias rd='rmdir'
 
 # Rename fdfind if it exists
 if command -v fdfind > /dev/null; then
-    alias fd='fdfind'
+    alias fd='/usr/bin/fdfind'
 fi
 
 # Tree without needing tree
