@@ -3,6 +3,9 @@
 # No newlines @ start of prompt
 add_newline = false
 
+# TODO: Try this fun style
+# (๑•ᴗ•)⊃━~━☆ﾟ❯ cd ∆
+# (๑•ᴗ•)⊃━~/∆━☆ﾟ {(...plugin tags...)}
 # The prompt-wide format curved arrow with topline shwowing most info in boxes
 format = """
 [┌─](bold white)$username$hostname$directory
@@ -16,17 +19,17 @@ vicmd_symbol = "[❮](bold blue)"
 [username]
 disabled = false
 show_always = true
-format = "[─\\[](bold white)[$user]($style)[@](bold white)"
+format = "(bold white)─\\[[$user]($style)(bold white)\\]"
 style_user = "white"
 style_root = "bold red"
 
 [hostname]
-format = "-\\[[$hostname]($style)\\]"
+format = "─\\[[$hostname]($style)\\]"
 style = "bold purple"
 # ssh_only = true
 ssh_only = false
 trim_at = "." # could also include domain like .example.com
-disabled = false
+disabled = true
 
 [directory]
 truncation_length = 4
