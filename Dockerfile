@@ -10,7 +10,7 @@ RUN apt-get update && apt install -y \
     curl \
     nano \
     fzf \
-    fdfind \
+    fd-find \
     vim 
 
 RUN export EDITOR=nano
