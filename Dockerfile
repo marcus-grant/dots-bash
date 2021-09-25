@@ -13,15 +13,16 @@ RUN apt-get update && apt install -y \
     fd-find \
     vim 
 
-RUN export EDITOR=nano
+RUN useradd -ms /bin/bash test; echo "test:test" | chpasswd; adduser test sudo
+
+RUN mkdir /home/test/.dots
 RUN mkdir /root/.dots
-RUN mkdir /root/.dots/bash
-RUN rm /root/.bashrc
+RUN ln -sf /home/test/.dots/bash/rc.bash /home/test/.bashrc
+RUN ln -sf /home/test/.dots/bash/profile.bash /home/test/.bash_profile
 RUN ln -sf /root/.dots/bash/rc.bash /root/.bashrc
 RUN ln -sf /root/.dots/bash/profile.bash /root/.bash_profile
-# RUN curl -o /tmp/starship-install.sh https://starship.rs/install.sh
-# RUN chmod +x /tmp/starship-install.sh
-# RUN /tmp/starship-install.sh -y
-# RUN git clone --depth=1 https://github.com/Bash-it/bash-it.git /root/.dots/bash/bash-it
+RUN echo '. ~/.bash_profile; . ~/.bashrc; mesg n 2> /dev/null || true' > /root/.profile
 
-WORKDIR /root
+USER test
+RUN echo '. ~/.bash_profile; . ~/.bashrc; mesg n 2> /dev/null || true' > /home/test/.profile
+WORKDIR /home/test

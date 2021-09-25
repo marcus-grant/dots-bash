@@ -15,7 +15,8 @@ while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symli
 done
 SCRIPT_DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
 
-TEST_VOLUME="$SCRIPT_DIR:/root/.dots/bash:rw"
+TEST_VOLUME1="$SCRIPT_DIR:/home/test/.dots/bash:ro"
+TEST_VOLUME2="$SCRIPT_DIR:/root/.dots/bash:ro"
 
 # Check if docker installed
 if ! command -v docker &> /dev/null
@@ -46,7 +47,8 @@ fi
 echo
 echo "Attaching to BASH testing container..."
 echo
-docker run -it --name $TEST_CONTAINER -v $TEST_VOLUME --cpus="0.1" $TEST_IMAGE '/bin/bash'
+docker run -it --name $TEST_CONTAINER -v $TEST_VOLUME1 -v $TEST_VOLUME2 \
+--cpus="0.15" $TEST_IMAGE '/bin/bash'
 
 echo
 echo "Cleaning up container..."

@@ -87,15 +87,21 @@ if [ -z $SCM_CHECK ]; then export SCM_CHECK=false; fi
 # export BASH_IT_RELOAD_LEGACY=1
 
 # Load Bash It
-source "$BASH_IT"/bash_it.sh
+# source "$BASH_IT"/bash_it.sh
 
 # MARCUS GRANT's PERSONAL v3 additions to bash dotfiles
 # Should go after Bash It invocation to make sure they override them
 
 # General Aliases
 source "$DOTS_DIR_BASH"/alias.bash
+
 # Prompt choose one from ./prompts directory
-source "$DOTS_DIR_BASH"/prompts/starship-prompt.bash
+# source "$DOTS_DIR_BASH"/prompts/starship-prompt.bash
+# source "$DOTS_DIR_BASH/prompts/minimal.bash"
+if [[ -z $BASH_PROMPT_NAME ]]; then
+    export BASH_PROMPT_NAME='minimal'
+fi
+source "$DOTS_DIR_BASH/prompts/$BASH_PROMPT_NAME.bash"
 
 # Plugins
 source "$DOTS_DIR_BASH/plugins/systemd.bash"
