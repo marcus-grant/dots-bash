@@ -1,3 +1,6 @@
+# Settings for this configuration
+export BASH_PROMPT_NAME='minimal'
+
 # Get dotfile directory as DOTS_DIR & bash dotfiles subdir as DOTS_DIR_BASH
 _DOTSDIRSRC="${BASH_SOURCE[0]}"
 while [ -h "$_DOTSDIRSRC" ]; do # resolve $_DOTSDIRSRC until the file is no longer a symlink
