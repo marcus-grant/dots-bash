@@ -13,13 +13,14 @@ if [ -z $DOTS_DIR ]; then source ~/.bash_profile; fi
 # Load a git-ignored bashlocal.bash config file to override key variables on local installs only
 if [ -f $DOTS_DIR_BASH/bashlocal.bash ]; then source $DOTS_DIR_BASH/bashlocal.bash; fi
 
+# DELETEME: Remove this when v3 works and basher/bashit is gone and all works
 # Path to the bash it configuration (stock config)
 # export BASH_IT="/$HOME/bash-it"
 # In some cases (like with docker run) bash_profile isn't called first
 # Make sure it is by checking if BASH_IT is defined, if not run bash_profile
-if [ -z $BASH_IT ]; then source ~/.bash_profile; fi
-# Same for BASHER
-if [ -z $BASHER_ROOT ]; then source ~/.bash_profile; fi
+# if [ -z $BASH_IT ]; then source ~/.bash_profile; fi
+# # Same for BASHER
+# if [ -z $BASHER_ROOT ]; then source ~/.bash_profile; fi
 
 # Lock and Load a custom theme file.
 # Leave empty to disable theming.
@@ -37,14 +38,16 @@ if [ -z $BASHER_ROOT ]; then source ~/.bash_profile; fi
 # Your place for hosting Git repos. I use this for private repos.
 # export GIT_HOSTING='git@git.domain.com'
 
-# Don't check mail when opening terminal.
-unset MAILCHECK
+# DELETEME: after v3 change
+# # Don't check mail when opening terminal.
+# unset MAILCHECK
+#
+# # Change this to your console based IRC client of choice.
+# export IRC_CLIENT='weechat'
 
-# Change this to your console based IRC client of choice.
-export IRC_CLIENT='weechat'
-
+# DELETEME: After v3
 # Set this to false to turn off version control status checking within the prompt for all themes
-if [ -z $SCM_CHECK ]; then export SCM_CHECK=false; fi
+# if [ -z $SCM_CHECK ]; then export SCM_CHECK=false; fi
 # Set to actual location of gitstatus directory if installed
 # export SCM_GIT_GITSTATUS_DIR="$DOTS_DIR_BASH/gitstatus"
 # Per default gitstatus uses 2 times as many threads as CPU cores, you can change this here if you must

@@ -6,6 +6,7 @@ RUN apt-get update && apt install -y \
     bash \
     sudo \
     less \
+    sed \
     git \
     curl \
     nano \
