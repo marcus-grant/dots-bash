@@ -58,6 +58,11 @@ alias h="history"
 alias md='mkdir -p'
 alias rd='rmdir'
 
+# Rename fdfind if it exists
+if command -v fdfind > /dev/null; then
+    alias fd='/usr/bin/fdfind'
+fi
+
 # Tree without needing tree
 if [ ! -x "$(which tree 2>/dev/null)" ]; then
   alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
@@ -84,6 +89,13 @@ alias semacs="sudo emacs"
 # Shortcut to extract & archive helper script
 alias xt="extract"
 alias ar="archive"
+
+# TMUX
+alias tm='tmux attach -t main || tmux new -s main'
+alias tma='tmux attach -t'
+alias tmn='tmux new -s'
+alias tml='tmux list-sessions'
+alias tmk='tmux kill-session -t'
 
 # Language short-hands
 # Since python is near the transition of making 'python' alias to 'python3'

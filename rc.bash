@@ -6,6 +6,9 @@ case $- in
     *) return;;
 esac
 
+# Enable bash completion for sudo
+complete -cf sudo
+
 # First check if the crucial vars DOTS_DIR & DOTS_DIR_BASH were loaded
 # In some cases, especially testing w/ Docker .bash_profile isn't called
 if [ -z $DOTS_DIR ]; then source ~/.bash_profile; fi
@@ -108,4 +111,12 @@ source "$DOTS_DIR_BASH/prompts/$BASH_PROMPT_NAME.bash"
 
 # Plugins
 source "$DOTS_DIR_BASH/plugins/systemd.bash"
+source "$DOTS_DIR_BASH/plugins/fzf.bash"
 
+
+# TODO not sure if this is the best way to handle this
+# * [x] Works w/o on Pop_OS
+# * [ ] Works w/o on Debian
+# * [ ] Works w/o on Fedora
+# * [ ] Works w/o on MacOS
+# [ -f ~/.fzf.bash ] && source ~/.fzf.bash
