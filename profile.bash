@@ -14,6 +14,9 @@ DOTS_DIR="$(dirname "$DOTS_DIR_BASH")"
 # Load custom local-only overrides early in case there's stuff here to override
 if [ -f $DOTS_DIR_BASH/bashlocal.bash ]; then source $DOTS_DIR_BASH/bashlocal.bash; fi
 
+# PATH
+export PATH="$PATH:$HOME/.cargo/bin"
+
 # Some defaults
 export EDITOR="vim"
 source $DOTS_DIR_BASH/rc.bash
