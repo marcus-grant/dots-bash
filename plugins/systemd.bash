@@ -2,7 +2,7 @@
 
 case $OSTYPE in
     linux*)
-        alias sc='systemctl'
+        alias sc='sudo systemctl'
         alias scu='sc --user'
         alias scdr='sc daemon-reload'
         alias scdru='scu daemon-reload'
@@ -12,6 +12,8 @@ case $OSTYPE in
         alias sctu='sct --user'
         alias scs='sc start'
         alias scsu='scs --user'
+        alias sce='sc enable'
+        alias sceu='sce --user'
         # Reordering some of the acronyms
         alias scus='scsu'
         alias scur='scdru'
