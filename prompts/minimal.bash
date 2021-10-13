@@ -124,7 +124,7 @@ function prompt_command {
     local _RC="$?"
 
 
-    local PROMPT='┌─-'
+    local PROMPT='┌──'
 
     PROMPT+="[$(prompt_root_user)@$(prompt_hostname_remote)]"
     PROMPT+="─[$(prompt_conditional_pwd)]"
