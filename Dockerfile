@@ -5,6 +5,7 @@ LABEL maintainer=marcusfg@gmail.com
 RUN apt-get update && apt install -y \
     bash \
     sudo \
+    firewalld \
     less \
     sed \
     git \

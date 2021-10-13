@@ -31,6 +31,9 @@ source "$DOTS_DIR_BASH/prompts/$BASH_PROMPT_NAME.bash"
 source "$DOTS_DIR_BASH/plugins/systemd.bash"
 source "$DOTS_DIR_BASH/plugins/fzf.bash"
 
+# TODO: Move these to a templated local file
+source "$DOTS_DIR_BASH/plugins/firewalld.bash"
+
 
 # TODO not sure if this is the best way to handle this
 # * [x] Works w/o on Pop_OS
