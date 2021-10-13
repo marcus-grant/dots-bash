@@ -23,6 +23,6 @@ fwl () {
 
     echo
     echo "===| all rules |==="
-    sudo firewall-cdm --direct --get-all-rules
+    sudo firewall-cmd --direct --get-all-rules
     echo
 }
