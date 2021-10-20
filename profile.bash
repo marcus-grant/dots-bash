@@ -15,7 +15,17 @@ DOTS_DIR="$(dirname "$DOTS_DIR_BASH")"
 if [ -f $DOTS_DIR_BASH/bashlocal.bash ]; then source $DOTS_DIR_BASH/bashlocal.bash; fi
 
 # PATH
-export PATH="$PATH:$HOME/.cargo/bin"
+# Add all paths to this list, the list will then check if
+# that item already exists then append to $PATH if not.
+declare -a _paths_list=(
+    "$HOME/.local/bin"
+    "$HOME/.cargo/bin"
+)
+for __path in "${_paths_list[@]}"; do
+    if [[ ! $PATH = *$__path* ]]; then
+        export PATH="$PATH:$__path"
+    fi
+done
 
 # Some defaults
 export EDITOR="vim"
