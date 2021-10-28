@@ -14,3 +14,6 @@ fi
 if [ -e "$ASDF_DATA_DIR/asdf.sh" ]; then
     source $ASDF_DATA_DIR/asdf.sh
 fi
+if [ -e "$ASDF_DATA_DIR/completions/asdf.bash" ]; then
+    source $ASDF_DATA_DIR/completions/asdf.bash
+fi

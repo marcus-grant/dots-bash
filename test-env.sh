@@ -48,7 +48,8 @@ echo
 echo "Attaching to BASH testing container..."
 echo
 docker run -it --name $TEST_CONTAINER -v $TEST_VOLUME1 -v $TEST_VOLUME2 \
---cpus="0.1" $TEST_IMAGE '/bin/bash'
+--cpus="2" $TEST_IMAGE '/bin/bash'
+# --cpus="0.1" $TEST_IMAGE '/bin/bash'
 
 echo
 echo "Cleaning up container..."
