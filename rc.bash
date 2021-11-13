@@ -34,6 +34,7 @@ source "$DOTS_DIR_BASH/plugins/fzf.bash"
 # TODO: Move these to a templated local file
 source "$DOTS_DIR_BASH/plugins/firewalld.bash"
 source "$DOTS_DIR_BASH/plugins/asdf.bash"
+source "$DOTS_DIR_BASH/plugins/pass.bash"
 
 
 # TODO not sure if this is the best way to handle this
